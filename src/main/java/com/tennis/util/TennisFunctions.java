@@ -28,7 +28,7 @@ public class TennisFunctions {
 						return TennisUtil.FORTY;
 					case TennisUtil.FORTY:
 						switch (match.getSets().get(set_id).getGames().get(game_id).getAway_score().toUpperCase()) {
-						case TennisUtil.FORTY:
+						case TennisUtil.FORTY: case TennisUtil.ADVANTAGE:
 							return TennisUtil.ADVANTAGE;
 						default:
 							return TennisUtil.GAME;
@@ -54,7 +54,7 @@ public class TennisFunctions {
 						return TennisUtil.FORTY;
 					case TennisUtil.FORTY:
 						switch (match.getSets().get(set_id).getGames().get(game_id).getHome_score().toUpperCase()) {
-						case TennisUtil.FORTY:
+						case TennisUtil.FORTY: case TennisUtil.ADVANTAGE:
 							return TennisUtil.ADVANTAGE;
 						default:
 							return TennisUtil.GAME;
