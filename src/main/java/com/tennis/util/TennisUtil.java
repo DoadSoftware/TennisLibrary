@@ -10,6 +10,7 @@ public class TennisUtil {
 	public final static String SCENES_DIRECTORY = "Scenes/";
 	public final static String CONFIGURATIONS_DIRECTORY = "Configurations/";
 	public final static String OUTPUT_XML = "OUTPUT.XML";
+	public final static String CLOCK_XML = "CLOCK.XML";
 	
 	public final static String PNG_EXTENSION = ".png";
 	public final static String DOUBLE_BACKSLASH = "\\";
@@ -17,6 +18,9 @@ public class TennisUtil {
 
 	public final static String YES = "YES";
 	public final static String NO = "NO";
+	
+	public final static String ONE = "1";
+	public final static String TWO = "2";
 
 	public final static String NORMAL = "NORMAL";
 	public final static String TIE_BREAK = "TIE_BREAK";
@@ -58,4 +62,8 @@ public class TennisUtil {
 	public final static String SET = "SET";
 	public final static String GAME = "GAME";
 	public final static String CURRENT = "CURRENT";
+	
+	public final static String START_PAUSE_TIME = "START_PAUSE_TIME";
+	public final static String LOG_OVERWRITE_MATCH_TIME = "LOG_OVERWRITE_MATCH_TIME";
+	public final static String LOG_TIME = "LOG_TIME";
 }

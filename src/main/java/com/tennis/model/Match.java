@@ -33,6 +33,9 @@ public class Match {
   @XmlElement(name = "matchIdent")
   private String matchIdent;
   
+  @XmlElement(name = "categoryType")
+  private String categoryType;
+  
   @XmlElement(name = "matchType")
   private String matchType;
 
@@ -63,6 +66,9 @@ public class Match {
 
   @XmlTransient
   private Player awaySecondPlayer;
+  
+  @XmlElement(name = "clock")
+  private Clock clock;
   
   @XmlTransient
   private List<Event> events;
@@ -211,15 +217,32 @@ public void setEvents(List<Event> events) {
 	this.events = events;
 }
 
+public Clock getClock() {
+	return clock;
+}
+
+public void setClock(Clock clock) {
+	this.clock = clock;
+}
+
+public String getCategoryType() {
+	return categoryType;
+}
+
+public void setCategoryType(String categoryType) {
+	this.categoryType = categoryType;
+}
+
 @Override
 public String toString() {
 	return "Match [matchFileTimeStamp=" + matchFileTimeStamp + ", matchResult=" + matchResult + ", tierBreakerRule="
 			+ tierBreakerRule + ", matchStatus=" + matchStatus + ", matchFileName=" + matchFileName + ", tournament="
-			+ tournament + ", matchIdent=" + matchIdent + ", matchType=" + matchType + ", homeFirstPlayerId="
-			+ homeFirstPlayerId + ", homeSecondPlayerId=" + homeSecondPlayerId + ", awayFirstPlayerId="
-			+ awayFirstPlayerId + ", awaySecondPlayerId=" + awaySecondPlayerId + ", sets=" + sets + ", homeFirstPlayer="
-			+ homeFirstPlayer + ", homeSecondPlayer=" + homeSecondPlayer + ", awayFirstPlayer=" + awayFirstPlayer
-			+ ", awaySecondPlayer=" + awaySecondPlayer + ", events=" + events + "]";
+			+ tournament + ", matchIdent=" + matchIdent + ", categoryType=" + categoryType + ", matchType=" + matchType
+			+ ", homeFirstPlayerId=" + homeFirstPlayerId + ", homeSecondPlayerId=" + homeSecondPlayerId
+			+ ", awayFirstPlayerId=" + awayFirstPlayerId + ", awaySecondPlayerId=" + awaySecondPlayerId + ", sets="
+			+ sets + ", homeFirstPlayer=" + homeFirstPlayer + ", homeSecondPlayer=" + homeSecondPlayer
+			+ ", awayFirstPlayer=" + awayFirstPlayer + ", awaySecondPlayer=" + awaySecondPlayer + ", clock=" + clock
+			+ ", events=" + events + "]";
 }
 
 }
