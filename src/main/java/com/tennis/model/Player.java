@@ -25,6 +25,12 @@ public class Player
   
   @Column(name = "TICKERNAME")
   private String ticker_name;
+  
+  @Column(name = "RANK")
+  private String rank;
+  
+  @Column(name = "Nationality")
+  private String Nationality;
 
 public int getPlayerId() {
 	return playerId;
@@ -66,10 +72,26 @@ public void setTicker_name(String ticker_name) {
 	this.ticker_name = ticker_name;
 }
 
+public String getRank() {
+	return rank;
+}
+
+public void setRank(String rank) {
+	this.rank = rank;
+}
+
+public String getNationality() {
+	return Nationality;
+}
+
+public void setNationality(String nationality) {
+	Nationality = nationality;
+}
+
 @Override
 public String toString() {
 	return "Player [playerId=" + playerId + ", full_name=" + full_name + ", firstname=" + firstname + ", surname="
-			+ surname + ", ticker_name=" + ticker_name + "]";
+			+ surname + ", ticker_name=" + ticker_name + ", rank=" + rank + ", Nationality=" + Nationality + "]";
 }
 
 }
