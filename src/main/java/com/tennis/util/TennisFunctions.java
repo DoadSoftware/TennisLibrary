@@ -27,7 +27,8 @@ public class TennisFunctions {
 		} else if(whatToProcess.toUpperCase().contains(TennisUtil.DECREMENT)) {
 			this_stats_itr = stats.listIterator(stats.size());
 			if(this_stats_itr.hasPrevious()) {
-				if(this_stats_itr.previous().getStatType().equalsIgnoreCase(stats_type)) {
+				if(this_stats_itr.previous().getStatType().equalsIgnoreCase(stats_type)
+						&& this_stats_itr.previous().getPlayerId() == Integer.valueOf(whatToProcess.split(",")[1])) {
 					this_stats_itr.remove();
 				}
 			}
