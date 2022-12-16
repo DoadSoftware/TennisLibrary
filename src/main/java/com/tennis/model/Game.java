@@ -1,8 +1,11 @@
 package com.tennis.model;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="Games")
@@ -13,7 +16,7 @@ public class Game {
 	private int game_number;
 	
 	@XmlElement(name="servingPlayer")
-	private String serving_player;
+	private int serving_player;
 
 	@XmlElement(name="homeScore")
 	private String home_score;
@@ -30,6 +33,10 @@ public class Game {
 	@XmlElement(name="gameType")
 	private String game_type;
 	
+    @XmlElementWrapper(name = "stats")
+    @XmlElement(name = "stat")
+    private List<Stat> stats;
+	
 	public Game() {
 		super();
 	}
@@ -43,6 +50,14 @@ public class Game {
 		this.game_type = game_type;
 	}
 
+	public List<Stat> getStats() {
+		return stats;
+	}
+
+	public void setStats(List<Stat> stats) {
+		this.stats = stats;
+	}
+
 	public String getGame_type() {
 		return game_type;
 	}
@@ -51,11 +66,11 @@ public class Game {
 		this.game_type = game_type;
 	}
 
-	public String getServing_player() {
+	public int getServing_player() {
 		return serving_player;
 	}
 
-	public void setServing_player(String serving_player) {
+	public void setServing_player(int serving_player) {
 		this.serving_player = serving_player;
 	}
 

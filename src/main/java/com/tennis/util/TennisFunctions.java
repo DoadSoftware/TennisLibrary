@@ -5,10 +5,37 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.ListIterator;
 import com.tennis.model.Match;
+import com.tennis.model.Stat;
 import com.tennis.service.TennisService;
 
 public class TennisFunctions {
+
+	public static List<Stat> processStats(List<Stat> stats, String whatToProcess) 
+	{
+		ListIterator<Stat> this_stats_itr;
+		String stats_type = "";
+		if(whatToProcess.toUpperCase().contains(TennisUtil.ACE)) {
+			stats_type = TennisUtil.ACE;
+		}
+		
+		if(whatToProcess.toUpperCase().contains(TennisUtil.INCREMENT)) {
+			stats.add(new Stat(stats.size() + 1, stats_type, 
+					Integer.valueOf(whatToProcess.split(",")[1])));
+		} else if(whatToProcess.toUpperCase().contains(TennisUtil.DECREMENT)) {
+			this_stats_itr = stats.listIterator(stats.size());
+			if(this_stats_itr.hasPrevious()) {
+				if(this_stats_itr.previous().getStatType().equalsIgnoreCase(stats_type)) {
+					this_stats_itr.remove();
+				}
+			}
+		}
+
+		return stats;
+		
+	}
 	
 	public static String processScore(Match match, int set_id, int game_id, String which_team, String increment_or_decrement)
 	{

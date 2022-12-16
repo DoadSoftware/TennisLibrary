@@ -32,10 +32,14 @@ public class TennisUtil {
 	public final static String SCORE = "SCORE";
 	public final static String INCREMENT = "INCREMENT";
 	public final static String DECREMENT = "DECREMENT";
+
+	public final static String ACE = "ACE";
 	
 	public final static String START = "START";
 	public final static String END = "END";
 	public final static String RESET = "RESET";
+	public final static String READ_CLOCK = "READ_CLOCK";
+	public final static String LOG_STAT = "LOG_STAT";
 	public final static String LOG_SERVE = "LOG_SERVE";
 	public final static String LOG_SET = "LOG_SET";
 	public final static String LOG_GAME = "LOG_GAME";
