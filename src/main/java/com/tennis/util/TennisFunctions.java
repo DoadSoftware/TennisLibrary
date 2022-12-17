@@ -5,37 +5,77 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.ListIterator;
+import com.tennis.model.Game;
 import com.tennis.model.Match;
+import com.tennis.model.Set;
 import com.tennis.model.Stat;
 import com.tennis.service.TennisService;
 
 public class TennisFunctions {
 
-	public static List<Stat> processStats(List<Stat> stats, String whatToProcess) 
+	public static Match processStats(Match match, String whatToProcess) 
 	{
 		ListIterator<Stat> this_stats_itr;
-		String stats_type = "";
-		if(whatToProcess.toUpperCase().contains(TennisUtil.ACE)) {
-			stats_type = TennisUtil.ACE;
-		}
+		Stat this_stat;
 		
-		if(whatToProcess.toUpperCase().contains(TennisUtil.INCREMENT)) {
-			stats.add(new Stat(stats.size() + 1, stats_type, 
-					Integer.valueOf(whatToProcess.split(",")[1])));
-		} else if(whatToProcess.toUpperCase().contains(TennisUtil.DECREMENT)) {
-			this_stats_itr = stats.listIterator(stats.size());
-			if(this_stats_itr.hasPrevious()) {
-				if(this_stats_itr.previous().getStatType().equalsIgnoreCase(stats_type)
-						&& this_stats_itr.previous().getPlayerId() == Integer.valueOf(whatToProcess.split(",")[1])) {
-					this_stats_itr.remove();
+		for(Set set : match.getSets()) {
+			if(set.getSet_status().equalsIgnoreCase(TennisUtil.START)) {
+				for(Game game : set.getGames()) {
+					if(game.getGame_status().equalsIgnoreCase(TennisUtil.START)) {
+						if(whatToProcess.toUpperCase().contains(TennisUtil.INCREMENT)) {
+							this_stats_itr = game.getStats().listIterator();
+							if(whatToProcess.toUpperCase().contains(TennisUtil.HOME)) {
+								if(whatToProcess.toUpperCase().contains(TennisUtil.FIRST)) {
+									this_stats_itr.add(new Stat(game.getStats().size() + 1, 
+										whatToProcess.split(",")[0].split("_")[0], match.getHomeFirstPlayerId()));
+								}else if(whatToProcess.toUpperCase().contains(TennisUtil.SECOND)) {
+									this_stats_itr.add(new Stat(game.getStats().size() + 1, 
+										whatToProcess.split(",")[0].split("_")[0], match.getHomeSecondPlayerId()));
+								}
+							}else if(whatToProcess.toUpperCase().contains(TennisUtil.AWAY)) {
+								if(whatToProcess.toUpperCase().contains(TennisUtil.FIRST)) {
+									this_stats_itr.add(new Stat(game.getStats().size() + 1, whatToProcess.split(",")[0].split("_")[0], 
+										match.getAwayFirstPlayerId()));
+								}else if(whatToProcess.toUpperCase().contains(TennisUtil.SECOND)) {
+									this_stats_itr.add(new Stat(game.getStats().size() + 1, whatToProcess.split(",")[0].split("_")[0], 
+										match.getAwaySecondPlayerId()));
+								}
+							}
+						} else if(whatToProcess.toUpperCase().contains(TennisUtil.DECREMENT)) {
+							this_stats_itr = game.getStats().listIterator(game.getStats().size());
+							while(this_stats_itr.hasPrevious()) {
+								this_stat = this_stats_itr.previous();
+								if(this_stat.getStatType().equalsIgnoreCase(whatToProcess.split(",")[0].split("_")[0])) {
+									if(whatToProcess.toUpperCase().contains(TennisUtil.HOME)) {
+										if(whatToProcess.toUpperCase().contains(TennisUtil.FIRST)) {
+											if(this_stat.getPlayerId() == match.getHomeFirstPlayerId()) {
+												this_stats_itr.remove();
+											}
+										}else if(whatToProcess.toUpperCase().contains(TennisUtil.SECOND)) {
+											if(this_stat.getPlayerId() == match.getHomeSecondPlayerId()) {
+												this_stats_itr.remove();
+											}
+										}
+									}else if(whatToProcess.toUpperCase().contains(TennisUtil.AWAY)) {
+										if(whatToProcess.toUpperCase().contains(TennisUtil.FIRST)) {
+											if(this_stat.getPlayerId() == match.getAwayFirstPlayerId()) {
+												this_stats_itr.remove();
+											}
+										}else if(whatToProcess.toUpperCase().contains(TennisUtil.SECOND)) {
+											if(this_stat.getPlayerId() == match.getAwaySecondPlayerId()) {
+												this_stats_itr.remove();
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
-
-		return stats;
-		
+		return match;
 	}
 	
 	public static String processScore(Match match, int set_id, int game_id, String which_team, String increment_or_decrement)

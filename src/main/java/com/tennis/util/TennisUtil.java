@@ -32,8 +32,16 @@ public class TennisUtil {
 	public final static String SCORE = "SCORE";
 	public final static String INCREMENT = "INCREMENT";
 	public final static String DECREMENT = "DECREMENT";
+	public final static String FIRST = "FIRST";
+	public final static String SECOND = "SECOND";
 
 	public final static String ACE = "ACE";
+	public final static String FIRST_SERVE_POINT = "FirstServePoint";
+	public final static String SECOND_SERVE_POINT = "SecondServePoint";
+	public final static String FOREHAND_WINNER = "ForehandWinner";
+	public final static String BACKHAND_WINNER = "BackhandWinner";
+	public final static String SERVE_WINNER = "ServeWinner";
+	public final static String DOUBLE_FAULT = "doubleFault";
 	
 	public final static String START = "START";
 	public final static String END = "END";
