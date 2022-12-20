@@ -26,18 +26,18 @@ public class TennisFunctions {
 						if(whatToProcess.toUpperCase().contains(TennisUtil.INCREMENT)) {
 							this_stats_itr = game.getStats().listIterator();
 							if(whatToProcess.toUpperCase().contains(TennisUtil.HOME)) {
-								if(whatToProcess.toUpperCase().contains(TennisUtil.FIRST)) {
+								if(whatToProcess.toUpperCase().contains("_" + TennisUtil.FIRST + "_")) {
 									this_stats_itr.add(new Stat(game.getStats().size() + 1, 
 										whatToProcess.split(",")[0].split("_")[0], match.getHomeFirstPlayerId()));
-								}else if(whatToProcess.toUpperCase().contains(TennisUtil.SECOND)) {
+								}else if(whatToProcess.toUpperCase().contains("_" + TennisUtil.SECOND + "_")) {
 									this_stats_itr.add(new Stat(game.getStats().size() + 1, 
 										whatToProcess.split(",")[0].split("_")[0], match.getHomeSecondPlayerId()));
 								}
 							}else if(whatToProcess.toUpperCase().contains(TennisUtil.AWAY)) {
-								if(whatToProcess.toUpperCase().contains(TennisUtil.FIRST)) {
+								if(whatToProcess.toUpperCase().contains("_" + TennisUtil.FIRST + "_")) {
 									this_stats_itr.add(new Stat(game.getStats().size() + 1, whatToProcess.split(",")[0].split("_")[0], 
 										match.getAwayFirstPlayerId()));
-								}else if(whatToProcess.toUpperCase().contains(TennisUtil.SECOND)) {
+								}else if(whatToProcess.toUpperCase().contains("_" + TennisUtil.SECOND + "_")) {
 									this_stats_itr.add(new Stat(game.getStats().size() + 1, whatToProcess.split(",")[0].split("_")[0], 
 										match.getAwaySecondPlayerId()));
 								}
@@ -48,21 +48,21 @@ public class TennisFunctions {
 								this_stat = this_stats_itr.previous();
 								if(this_stat.getStatType().equalsIgnoreCase(whatToProcess.split(",")[0].split("_")[0])) {
 									if(whatToProcess.toUpperCase().contains(TennisUtil.HOME)) {
-										if(whatToProcess.toUpperCase().contains(TennisUtil.FIRST)) {
+										if(whatToProcess.toUpperCase().contains("_" + TennisUtil.FIRST + "_")) {
 											if(this_stat.getPlayerId() == match.getHomeFirstPlayerId()) {
 												this_stats_itr.remove();
 											}
-										}else if(whatToProcess.toUpperCase().contains(TennisUtil.SECOND)) {
+										}else if(whatToProcess.toUpperCase().contains("_" + TennisUtil.SECOND + "_")) {
 											if(this_stat.getPlayerId() == match.getHomeSecondPlayerId()) {
 												this_stats_itr.remove();
 											}
 										}
 									}else if(whatToProcess.toUpperCase().contains(TennisUtil.AWAY)) {
-										if(whatToProcess.toUpperCase().contains(TennisUtil.FIRST)) {
+										if(whatToProcess.toUpperCase().contains("_" + TennisUtil.FIRST + "_")) {
 											if(this_stat.getPlayerId() == match.getAwayFirstPlayerId()) {
 												this_stats_itr.remove();
 											}
-										}else if(whatToProcess.toUpperCase().contains(TennisUtil.SECOND)) {
+										}else if(whatToProcess.toUpperCase().contains("_" + TennisUtil.SECOND + "_")) {
 											if(this_stat.getPlayerId() == match.getAwaySecondPlayerId()) {
 												this_stats_itr.remove();
 											}
