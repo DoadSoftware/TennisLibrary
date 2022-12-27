@@ -65,6 +65,9 @@ public class TennisUtil {
 	public final static String PLAYER = "PLAYER";
 	public final static String RESULT = "RESULT";
 	
+	public final static String SINGLES = "SINGLES";
+	public final static String DOUBLES = "DOUBLES";
+	
 	public final static String LOVE = "0";
 	public final static String FIFTEEN = "15";
 	public final static String THIRTY = "30";
