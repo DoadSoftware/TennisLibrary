@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.tennis.dao.TennisDao;
+import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
 import com.tennis.service.TennisService;
 
@@ -22,6 +23,10 @@ public Player getPlayer(int player_id) {
 @Override
 public List<Player> getAllPlayer() {
 	return tennisDao.getAllPlayer();
+}
+@Override
+public List<NameSuper> getNameSupers() {
+	return tennisDao.getNameSupers();
 }
 
 }
