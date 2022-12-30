@@ -5,15 +5,44 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.ListIterator;
+
+import com.tennis.model.Fixture;
 import com.tennis.model.Game;
 import com.tennis.model.Match;
+import com.tennis.model.Player;
 import com.tennis.model.Set;
 import com.tennis.model.Stat;
 import com.tennis.service.TennisService;
 
 public class TennisFunctions {
-
+	
+	public static List<Fixture> processAllFixtures(TennisService tennisService) {
+		List<Fixture> fixtures = tennisService.getFixtures();
+		for(Player plyr : tennisService.getAllPlayer()) {
+			for(Fixture fix : fixtures) {
+				if(fix.getHomePlayerFirst() == plyr.getPlayerId()) {
+					fix.setHome_FirstPlayer(plyr);
+				}
+				if(fix.getAwayPlayerFirst() == plyr.getPlayerId()) {
+					fix.setAway_FirstPlayer(plyr);
+				}
+				if(fix.getHomePlayerSecond() != null) {
+					if(fix.getHomePlayerSecond() == plyr.getPlayerId()) {
+						fix.setHome_SecondPlayer(plyr);
+					}
+				}
+				if(fix.getAwayPlayerSecond() != null) {
+					if(fix.getAwayPlayerSecond() == plyr.getPlayerId()) {
+						fix.setAway_SecondPlayer(plyr);
+					}
+				}
+			}
+		}
+		return fixtures;
+	}
+	
 	public static Match processStats(Match match, String whatToProcess) 
 	{
 		ListIterator<Stat> this_stats_itr;

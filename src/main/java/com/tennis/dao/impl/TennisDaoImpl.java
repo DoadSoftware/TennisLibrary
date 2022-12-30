@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.tennis.dao.TennisDao;
+import com.tennis.model.Fixture;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
+import com.tennis.model.VariousText;
 
 @Transactional
 @Repository("tennisDao")
@@ -32,6 +34,18 @@ public List<Player> getAllPlayer() {
 @Override
 public List<NameSuper> getNameSupers() {
 	return sessionFactory.getCurrentSession().createQuery("from NameSuper").list();
+}
+
+@SuppressWarnings("unchecked")
+@Override
+public List<Fixture> getFixtures() {
+	return sessionFactory.getCurrentSession().createQuery("from Fixture").list();
+}
+
+@SuppressWarnings("unchecked")
+@Override
+public List<VariousText> getVariousTexts() {
+	return sessionFactory.getCurrentSession().createQuery("from VariousText").list();
 }
 
 }

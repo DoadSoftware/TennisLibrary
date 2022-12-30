@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.tennis.dao.TennisDao;
+import com.tennis.model.Fixture;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
+import com.tennis.model.VariousText;
 import com.tennis.service.TennisService;
 
 @Service("tennisService")
@@ -27,6 +29,14 @@ public List<Player> getAllPlayer() {
 @Override
 public List<NameSuper> getNameSupers() {
 	return tennisDao.getNameSupers();
+}
+@Override
+public List<Fixture> getFixtures() {
+	return tennisDao.getFixtures();
+}
+@Override
+public List<VariousText> getVariousTexts() {
+	return tennisDao.getVariousTexts();
 }
 
 }
