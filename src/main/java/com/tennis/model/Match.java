@@ -18,8 +18,11 @@ public class Match {
   @XmlElement(name = "matchResult")
   private String matchResult;
 
-  @XmlElement(name = "tierBreakerRule")
-  private String tierBreakerRule;
+  @XmlElement(name = "tieBreakerRule")
+  private String tieBreakerRule;
+
+  @XmlElement(name = "advantageRule")
+  private String advantageRule;
   
   @XmlElement(name = "matchStatus")
   private String matchStatus;
@@ -73,12 +76,20 @@ public class Match {
   @XmlTransient
   private List<Event> events;
 
-public String getTierBreakerRule() {
-	return tierBreakerRule;
+public String getAdvantageRule() {
+	return advantageRule;
 }
 
-public void setTierBreakerRule(String tierBreakerRule) {
-	this.tierBreakerRule = tierBreakerRule;
+public void setAdvantageRule(String advantageRule) {
+	this.advantageRule = advantageRule;
+}
+
+public String getTieBreakerRule() {
+	return tieBreakerRule;
+}
+
+public void setTieBreakerRule(String tieBreakerRule) {
+	this.tieBreakerRule = tieBreakerRule;
 }
 
 public String getMatchFileTimeStamp() {
@@ -235,14 +246,14 @@ public void setCategoryType(String categoryType) {
 
 @Override
 public String toString() {
-	return "Match [matchFileTimeStamp=" + matchFileTimeStamp + ", matchResult=" + matchResult + ", tierBreakerRule="
-			+ tierBreakerRule + ", matchStatus=" + matchStatus + ", matchFileName=" + matchFileName + ", tournament="
-			+ tournament + ", matchIdent=" + matchIdent + ", categoryType=" + categoryType + ", matchType=" + matchType
-			+ ", homeFirstPlayerId=" + homeFirstPlayerId + ", homeSecondPlayerId=" + homeSecondPlayerId
-			+ ", awayFirstPlayerId=" + awayFirstPlayerId + ", awaySecondPlayerId=" + awaySecondPlayerId + ", sets="
-			+ sets + ", homeFirstPlayer=" + homeFirstPlayer + ", homeSecondPlayer=" + homeSecondPlayer
-			+ ", awayFirstPlayer=" + awayFirstPlayer + ", awaySecondPlayer=" + awaySecondPlayer + ", clock=" + clock
-			+ ", events=" + events + "]";
+	return "Match [matchFileTimeStamp=" + matchFileTimeStamp + ", matchResult=" + matchResult + ", tieBreakerRule="
+			+ tieBreakerRule + ", advantageRule=" + advantageRule + ", matchStatus=" + matchStatus + ", matchFileName="
+			+ matchFileName + ", tournament=" + tournament + ", matchIdent=" + matchIdent + ", categoryType="
+			+ categoryType + ", matchType=" + matchType + ", homeFirstPlayerId=" + homeFirstPlayerId
+			+ ", homeSecondPlayerId=" + homeSecondPlayerId + ", awayFirstPlayerId=" + awayFirstPlayerId
+			+ ", awaySecondPlayerId=" + awaySecondPlayerId + ", sets=" + sets + ", homeFirstPlayer=" + homeFirstPlayer
+			+ ", homeSecondPlayer=" + homeSecondPlayer + ", awayFirstPlayer=" + awayFirstPlayer + ", awaySecondPlayer="
+			+ awaySecondPlayer + ", clock=" + clock + ", events=" + events + "]";
 }
 
 }

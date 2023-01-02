@@ -185,11 +185,15 @@ public class TennisFunctions {
 					case TennisUtil.THIRTY:
 						return TennisUtil.FORTY;
 					case TennisUtil.FORTY:
-						switch (match.getSets().get(set_id).getGames().get(game_id).getAway_score().toUpperCase()) {
-						case TennisUtil.FORTY: case TennisUtil.ADVANTAGE:
-							return TennisUtil.ADVANTAGE;
-						default:
+						if(match.getMatchType().equalsIgnoreCase(TennisUtil.DOUBLES) && match.getAdvantageRule().equalsIgnoreCase(TennisUtil.NO_ADVANTAGE_DOUBLES)) {
 							return TennisUtil.GAME;
+						} else {
+							switch (match.getSets().get(set_id).getGames().get(game_id).getAway_score().toUpperCase()) {
+							case TennisUtil.FORTY: case TennisUtil.ADVANTAGE:
+								return TennisUtil.ADVANTAGE;
+							default:
+								return TennisUtil.GAME;
+							}
 						}
 					case TennisUtil.ADVANTAGE:
 						return TennisUtil.GAME;
@@ -211,11 +215,15 @@ public class TennisFunctions {
 					case TennisUtil.THIRTY:
 						return TennisUtil.FORTY;
 					case TennisUtil.FORTY:
-						switch (match.getSets().get(set_id).getGames().get(game_id).getHome_score().toUpperCase()) {
-						case TennisUtil.FORTY: case TennisUtil.ADVANTAGE:
-							return TennisUtil.ADVANTAGE;
-						default:
+						if(match.getMatchType().equalsIgnoreCase(TennisUtil.DOUBLES) && match.getAdvantageRule().equalsIgnoreCase(TennisUtil.NO_ADVANTAGE_DOUBLES)) {
 							return TennisUtil.GAME;
+						} else {
+							switch (match.getSets().get(set_id).getGames().get(game_id).getHome_score().toUpperCase()) {
+							case TennisUtil.FORTY: case TennisUtil.ADVANTAGE:
+								return TennisUtil.ADVANTAGE;
+							default:
+								return TennisUtil.GAME;
+							}
 						}
 					case TennisUtil.ADVANTAGE:
 						return TennisUtil.GAME;
@@ -245,11 +253,15 @@ public class TennisFunctions {
 					case TennisUtil.ADVANTAGE:
 						return TennisUtil.FORTY;
 					case TennisUtil.GAME:
-						switch (match.getSets().get(set_id).getGames().get(game_id).getAway_score().toUpperCase()) {
-						case TennisUtil.FORTY:
-							return TennisUtil.ADVANTAGE;
-						default:
+						if(match.getMatchType().equalsIgnoreCase(TennisUtil.DOUBLES) && match.getAdvantageRule().equalsIgnoreCase(TennisUtil.NO_ADVANTAGE_DOUBLES)) {
 							return TennisUtil.FORTY;
+						} else {
+							switch (match.getSets().get(set_id).getGames().get(game_id).getAway_score().toUpperCase()) {
+							case TennisUtil.FORTY:
+								return TennisUtil.ADVANTAGE;
+							default:
+								return TennisUtil.FORTY;
+							}
 						}
 					default:
 						return TennisUtil.LOVE;
@@ -277,11 +289,15 @@ public class TennisFunctions {
 					case TennisUtil.ADVANTAGE:
 						return TennisUtil.FORTY;
 					case TennisUtil.GAME:
-						switch (match.getSets().get(set_id).getGames().get(game_id).getHome_score().toUpperCase()) {
-						case TennisUtil.FORTY:
-							return TennisUtil.ADVANTAGE;
-						default:
+						if(match.getMatchType().equalsIgnoreCase(TennisUtil.DOUBLES) && match.getAdvantageRule().equalsIgnoreCase(TennisUtil.NO_ADVANTAGE_DOUBLES)) {
 							return TennisUtil.FORTY;
+						} else {
+							switch (match.getSets().get(set_id).getGames().get(game_id).getHome_score().toUpperCase()) {
+							case TennisUtil.FORTY:
+								return TennisUtil.ADVANTAGE;
+							default:
+								return TennisUtil.FORTY;
+							}
 						}
 					default:
 						return TennisUtil.LOVE;
