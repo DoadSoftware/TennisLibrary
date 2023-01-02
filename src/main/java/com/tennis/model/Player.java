@@ -34,6 +34,9 @@ public class Player
   
   @Column(name = "Nationality")
   private String Nationality;
+  
+  @Column(name = "Photo")
+  private String photo;
 
 public int getPlayerId() {
 	return playerId;
@@ -99,11 +102,19 @@ public void setNationality(String nationality) {
 	Nationality = nationality;
 }
 
+public String getPhoto() {
+	return photo;
+}
+
+public void setPhoto(String photo) {
+	this.photo = photo;
+}
+
 @Override
 public String toString() {
 	return "Player [playerId=" + playerId + ", full_name=" + full_name + ", firstname=" + firstname + ", surname="
 			+ surname + ", ticker_name=" + ticker_name + ", rankingSingle=" + rankingSingle + ", rankingDouble="
-			+ rankingDouble + ", Nationality=" + Nationality + "]";
+			+ rankingDouble + ", Nationality=" + Nationality + ", photo=" + photo + "]";
 }
 
 }
