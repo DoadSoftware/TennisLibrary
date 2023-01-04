@@ -14,70 +14,9 @@ import com.tennis.model.Match;
 import com.tennis.model.Player;
 import com.tennis.model.Set;
 import com.tennis.model.Stat;
-import com.tennis.model.Stats;
 import com.tennis.service.TennisService;
 
 public class TennisFunctions {
-	
-	public static Stats calMatchandSetStats(Stats stats, Match match,String type) {
-		
-		switch(type.toUpperCase()) {
-		case "MATCH_STATS":
-			if (match.getSets() != null) {
-				for (int i = 0; i <= match.getSets().size() - 1; i++) {
-					for (int j = 0; j <= match.getSets().get(i).getGames().size() - 1; j++) {
-						if(match.getSets().get(i).getGames().get(j).getStats() != null) {
-							for(Stat st : match.getSets().get(i).getGames().get(j).getStats()) {
-								if (st.getStatType().equalsIgnoreCase("ace")) {
-									if(match.getHomeFirstPlayerId() == st.getPlayerId() || match.getHomeSecondPlayerId() == st.getPlayerId()) {
-										stats.setHome_ace(stats.getHome_ace() + 1);
-									}else {
-										stats.setAway_ace(stats.getAway_ace() + 1);
-									}
-								}else {
-									if (st.getStatType().equalsIgnoreCase("doubleFault")) {
-										if(match.getHomeFirstPlayerId() == st.getPlayerId() || match.getHomeSecondPlayerId() == st.getPlayerId()) {
-											stats.setHome_double_fault(stats.getHome_double_fault() + 1);
-										}else {
-											stats.setAway_double_fault(stats.getAway_double_fault() + 1);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			break;
-		case "SET_STATS":
-			//stats.setHome_ace(0);stats.setAway_ace(0);stats.setHome_double_fault(0);stats.setAway_double_fault(0);
-			if (match.getSets() != null) {
-				for (int j = 0; j <= match.getSets().get(match.getSets().size()-1).getGames().size() - 1; j++) {
-					if(match.getSets().get(match.getSets().size()-1).getGames().get(j).getStats() != null) {
-						for(Stat st : match.getSets().get(match.getSets().size()-1).getGames().get(j).getStats()) {
-							if (st.getStatType().equalsIgnoreCase("ace")) {
-								if(match.getHomeFirstPlayerId() == st.getPlayerId() || match.getHomeSecondPlayerId() == st.getPlayerId()) {
-									stats.setHome_ace(stats.getHome_ace() + 1);
-								}else {
-									stats.setAway_ace(stats.getAway_ace() + 1);
-								}
-							}else {
-								if (st.getStatType().equalsIgnoreCase("doubleFault")) {
-									if(match.getHomeFirstPlayerId() == st.getPlayerId() || match.getHomeSecondPlayerId() == st.getPlayerId()) {
-										stats.setHome_double_fault(stats.getHome_double_fault() + 1);
-									}else {
-										stats.setAway_double_fault(stats.getAway_double_fault() + 1);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			break;
-		}
-		return stats;
-	}
 	
 	public static List<Fixture> processAllFixtures(TennisService tennisService) {
 		List<Fixture> fixtures = tennisService.getFixtures();
