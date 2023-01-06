@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tennis</groupId>
   <artifactId>TennisLibrary</artifactId>
-  <version>1.12</version>
+  <version>1.14</version>
   <name>TennisLibrary</name>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -23,6 +23,13 @@
     <groupId>com.fasterxml.jackson.dataformat</groupId>
     <artifactId>jackson-dataformat-xml</artifactId>
     <version>2.14.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.mashape.unirest/unirest-java -->
+<dependency>
+    <groupId>com.mashape.unirest</groupId>
+    <artifactId>unirest-java</artifactId>
+    <version>1.4.9</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->

@@ -1,10 +1,8 @@
 package com.tennis.model;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class LiveMatchData {
+public class LiveMatchStatsAPI {
 	
 	@JsonProperty("TournamentYear")
 	private int Tournament_year;
@@ -19,10 +17,10 @@ public class LiveMatchData {
 	private String Status;
 	
 	@JsonProperty("PlayerTeam1")
-	private List<PlayerSetMatchStats> Player1;
+	private PlayerStatsAPI PlayerTeam1;
 	
 	@JsonProperty("PlayerTeam2")
-	private List<PlayerSetMatchStats> Player2;
+	private PlayerStatsAPI PlayerTeam2;
 
 	public int getTournament_year() {
 		return Tournament_year;
@@ -56,20 +54,26 @@ public class LiveMatchData {
 		Status = status;
 	}
 
-	public List<PlayerSetMatchStats> getPlayer1() {
-		return Player1;
+	public PlayerStatsAPI getPlayerTeam1() {
+		return PlayerTeam1;
 	}
 
-	public void setPlayer1(List<PlayerSetMatchStats> player1) {
-		Player1 = player1;
+	public void setPlayerTeam1(PlayerStatsAPI playerTeam1) {
+		PlayerTeam1 = playerTeam1;
 	}
 
-	public List<PlayerSetMatchStats> getPlayer2() {
-		return Player2;
+	public PlayerStatsAPI getPlayerTeam2() {
+		return PlayerTeam2;
 	}
 
-	public void setPlayer2(List<PlayerSetMatchStats> player2) {
-		Player2 = player2;
+	public void setPlayerTeam2(PlayerStatsAPI playerTeam2) {
+		PlayerTeam2 = playerTeam2;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "LiveMatchStatsAPI [Tournament_year=" + Tournament_year + ", Tournament_id=" + Tournament_id
+				+ ", MatchId=" + MatchId + ", Status=" + Status + ", PlayerTeam1=" + PlayerTeam1 + ", PlayerTeam2="
+				+ PlayerTeam2 + "]";
+	}
 }

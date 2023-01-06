@@ -3,7 +3,7 @@ package com.tennis.model;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PlayerSetMatchStats {
+public class PlayerStatsAPI {
 
 	@JsonProperty("PlayerId")
 	private String firstPlayerId;
@@ -15,7 +15,7 @@ public class PlayerSetMatchStats {
 	private int gamePointsPlayerTeam;
 	
 	@JsonProperty("Sets")
-	private List<APIsets> sets;
+	private List<SetsAPI> sets;
 
 	public String getFirstPlayerId() {
 		return firstPlayerId;
@@ -41,18 +41,18 @@ public class PlayerSetMatchStats {
 		this.gamePointsPlayerTeam = gamePointsPlayerTeam;
 	}
 
-	public List<APIsets> getSets() {
+	public List<SetsAPI> getSets() {
 		return sets;
 	}
 
-	public void setSets(List<APIsets> sets) {
+	public void setSets(List<SetsAPI> sets) {
 		this.sets = sets;
 	}
 
 	@Override
 	public String toString() {
-		return "PlayerSetMatchStats [firstPlayerId=" + firstPlayerId + ", secondPlayerId=" + secondPlayerId
+		return "PlayerStatsAPI [firstPlayerId=" + firstPlayerId + ", secondPlayerId=" + secondPlayerId
 				+ ", gamePointsPlayerTeam=" + gamePointsPlayerTeam + ", sets=" + sets + "]";
 	}
-	
+
 }

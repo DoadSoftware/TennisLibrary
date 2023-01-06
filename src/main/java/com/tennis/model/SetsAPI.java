@@ -1,9 +1,8 @@
 package com.tennis.model;
 
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class APIsets {
+public class SetsAPI {
 
 	@JsonProperty("SetNumber")
 	private int setNumber;
@@ -15,7 +14,7 @@ public class APIsets {
 	private String tieBreakScore;
 	
 	@JsonProperty("Stats")
-	private List<APIstats> stats;
+	private APIstats stats;
 
 	public int getSetNumber() {
 		return setNumber;
@@ -41,18 +40,18 @@ public class APIsets {
 		this.tieBreakScore = tieBreakScore;
 	}
 
-	public List<APIstats> getStats() {
+	public APIstats getStats() {
 		return stats;
 	}
 
-	public void setStats(List<APIstats> stats) {
+	public void setStats(APIstats stats) {
 		this.stats = stats;
 	}
 
 	@Override
 	public String toString() {
-		return "APIsets [setNumber=" + setNumber + ", setScore=" + setScore + ", tieBreakScore=" + tieBreakScore + "]";
+		return "SetsAPI [setNumber=" + setNumber + ", setScore=" + setScore + ", tieBreakScore=" + tieBreakScore
+				+ ", stats=" + stats + "]";
 	}
-
 	
 }
