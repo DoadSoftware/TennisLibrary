@@ -9,6 +9,7 @@ import com.tennis.dao.TennisDao;
 import com.tennis.model.Fixture;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
+import com.tennis.model.Statistics;
 import com.tennis.model.VariousText;
 
 @Transactional
@@ -46,6 +47,12 @@ public List<Fixture> getFixtures() {
 @Override
 public List<VariousText> getVariousTexts() {
 	return sessionFactory.getCurrentSession().createQuery("from VariousText").list();
+}
+
+@SuppressWarnings("unchecked")
+@Override
+public List<Statistics> getStatistics() {
+	return sessionFactory.getCurrentSession().createQuery("from Statistics").list();
 }
 
 }

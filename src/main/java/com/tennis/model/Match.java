@@ -56,6 +56,9 @@ public class Match {
 
   @XmlElement(name = "awaySecondPlayerId")
   private int awaySecondPlayerId;
+  
+  @XmlElement(name = "retiredHurtPlayerId")
+  private int retiredHurtPlayerId;
 
   @XmlElementWrapper(name = "sets")
   @XmlElement(name = "set")
@@ -255,6 +258,14 @@ public void setMatchId(String matchId) {
 	this.matchId = matchId;
 }
 
+public int getRetiredHurtPlayerId() {
+	return retiredHurtPlayerId;
+}
+
+public void setRetiredHurtPlayerId(int retiredHurtPlayerId) {
+	this.retiredHurtPlayerId = retiredHurtPlayerId;
+}
+
 @Override
 public String toString() {
 	return "Match [matchFileTimeStamp=" + matchFileTimeStamp + ", matchResult=" + matchResult + ", tieBreakerRule="
@@ -262,9 +273,10 @@ public String toString() {
 			+ matchFileName + ", tournament=" + tournament + ", matchIdent=" + matchIdent + ", categoryType="
 			+ categoryType + ", matchType=" + matchType + ", matchId=" + matchId + ", homeFirstPlayerId="
 			+ homeFirstPlayerId + ", homeSecondPlayerId=" + homeSecondPlayerId + ", awayFirstPlayerId="
-			+ awayFirstPlayerId + ", awaySecondPlayerId=" + awaySecondPlayerId + ", sets=" + sets + ", homeFirstPlayer="
-			+ homeFirstPlayer + ", homeSecondPlayer=" + homeSecondPlayer + ", awayFirstPlayer=" + awayFirstPlayer
-			+ ", awaySecondPlayer=" + awaySecondPlayer + ", clock=" + clock + ", events=" + events + "]";
+			+ awayFirstPlayerId + ", awaySecondPlayerId=" + awaySecondPlayerId + ", retiredHurtPlayerId="
+			+ retiredHurtPlayerId + ", sets=" + sets + ", homeFirstPlayer=" + homeFirstPlayer + ", homeSecondPlayer="
+			+ homeSecondPlayer + ", awayFirstPlayer=" + awayFirstPlayer + ", awaySecondPlayer=" + awaySecondPlayer
+			+ ", clock=" + clock + ", events=" + events + "]";
 }
 
 }

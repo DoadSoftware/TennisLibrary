@@ -3,6 +3,7 @@ package com.tennis.util;
 public class TennisUtil {
 
 	public final static String ATP_2022 = "ATP_2022";
+	public final static String ATP_CHALLENGERS = "ATP_CHALLENGERS";
 	
 	public final static String TENNIS_DIRECTORY = "C:/Sports/Tennis/";
 	public final static String EVENT_DIRECTORY = "Event/";
@@ -30,6 +31,12 @@ public class TennisUtil {
 
 	public final static String YES = "YES";
 	public final static String NO = "NO";
+	
+	public final static String ATP_2022_SCOREBUG = "/Default/ScoreBug-Single";
+	public final static String ATP_CHALLENGERS_SCOREBUG = "/Default/ScoreBug-Single";
+	
+	public final static String FRONT_LAYER = "FRONT_LAYER";
+	public final static String MIDDLE_LAYER = "MIDDLE_LAYER";
 	
 	public final static String ONE = "1";
 	public final static String TWO = "2";

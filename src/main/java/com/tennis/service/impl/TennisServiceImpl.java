@@ -8,6 +8,7 @@ import com.tennis.dao.TennisDao;
 import com.tennis.model.Fixture;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
+import com.tennis.model.Statistics;
 import com.tennis.model.VariousText;
 import com.tennis.service.TennisService;
 
@@ -37,6 +38,10 @@ public List<Fixture> getFixtures() {
 @Override
 public List<VariousText> getVariousTexts() {
 	return tennisDao.getVariousTexts();
+}
+@Override
+public List<Statistics> getStatistics() {
+	return tennisDao.getStatistics();
 }
 
 }
