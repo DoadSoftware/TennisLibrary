@@ -9,6 +9,7 @@ import com.tennis.model.Fixture;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
 import com.tennis.model.Statistics;
+import com.tennis.model.Team;
 import com.tennis.model.VariousText;
 import com.tennis.service.TennisService;
 
@@ -42,6 +43,10 @@ public List<VariousText> getVariousTexts() {
 @Override
 public List<Statistics> getStatistics() {
 	return tennisDao.getStatistics();
+}
+@Override
+public List<Team> getAllTeams() {
+	return tennisDao.getAllTeams();
 }
 
 }

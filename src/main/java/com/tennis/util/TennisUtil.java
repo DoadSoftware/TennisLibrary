@@ -3,6 +3,7 @@ package com.tennis.util;
 public class TennisUtil {
 
 	public final static String ATP_2022 = "ATP_2022";
+	public final static String TPL_2023 = "TPL_2023";
 	public final static String ATP_CHALLENGERS = "ATP_CHALLENGERS";
 	
 	public final static String TENNIS_DIRECTORY = "C:/Sports/Tennis/";

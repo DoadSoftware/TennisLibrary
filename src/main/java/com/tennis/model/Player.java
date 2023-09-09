@@ -38,6 +38,17 @@ public class Player
   @Column(name = "Photo")
   private String photo;
 
+  @Column(name = "TeamId")
+  private Integer teamId;
+ 
+public Integer getTeamId() {
+	return teamId;
+}
+
+public void setTeamId(Integer teamId) {
+	this.teamId = teamId;
+}
+
 public int getPlayerId() {
 	return playerId;
 }

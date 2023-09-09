@@ -298,6 +298,7 @@ public class TennisFunctions {
 		if(match.getAwaySecondPlayerId() > 0) {
 			match.setAwaySecondPlayer(tennisService.getPlayer(match.getAwaySecondPlayerId()));
 		}
+		match.setPlayers(tennisService.getAllPlayer());
 		return match;
 	}
 	

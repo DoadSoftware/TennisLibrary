@@ -10,6 +10,7 @@ import com.tennis.model.Fixture;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
 import com.tennis.model.Statistics;
+import com.tennis.model.Team;
 import com.tennis.model.VariousText;
 
 @Transactional
@@ -53,6 +54,12 @@ public List<VariousText> getVariousTexts() {
 @Override
 public List<Statistics> getStatistics() {
 	return sessionFactory.getCurrentSession().createQuery("from Statistics").list();
+}
+
+@SuppressWarnings("unchecked")
+@Override
+public List<Team> getAllTeams() {
+	return sessionFactory.getCurrentSession().createQuery("from Team").list();
 }
 
 }

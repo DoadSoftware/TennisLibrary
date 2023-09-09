@@ -82,6 +82,17 @@ public class Match {
   @XmlTransient
   private List<Event> events;
 
+  @XmlTransient
+  private List<Player> players;
+ 
+public List<Player> getPlayers() {
+	return players;
+}
+
+public void setPlayers(List<Player> players) {
+	this.players = players;
+}
+
 public String getAdvantageRule() {
 	return advantageRule;
 }
