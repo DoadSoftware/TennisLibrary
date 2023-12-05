@@ -11,8 +11,14 @@ import javax.persistence.Column;
 public class Fixture {
 
   @Id
-  @Column(name = "MATCHNUMBER")
-  private int matchnumber;
+  @Column(name = "MatchId")
+  private int matchId;
+  
+  @Column(name = "MatchNumber")
+  private int matchNumber;
+  
+  @Column(name = "GameNumber")
+  private int gameNumber;
   
   @Column(name = "MatchFileName")
   private String matchfilename;
@@ -57,17 +63,33 @@ public Fixture() {
 	super();
 }
 
-public Fixture(int matchnumber) {
+public Fixture(int matchId) {
 	super();
-	this.matchnumber = matchnumber;
+	this.matchId = matchId;
 }
 
-public int getMatchnumber() {
-	return matchnumber;
+public int getMatchId() {
+	return matchId;
 }
 
-public void setMatchnumber(int matchnumber) {
-	this.matchnumber = matchnumber;
+public void setMatchId(int matchId) {
+	this.matchId = matchId;
+}
+
+public int getMatchNumber() {
+	return matchNumber;
+}
+
+public void setMatchNumber(int matchNumber) {
+	this.matchNumber = matchNumber;
+}
+
+public int getGameNumber() {
+	return gameNumber;
+}
+
+public void setGameNumber(int gameNumber) {
+	this.gameNumber = gameNumber;
 }
 
 public String getMatchfilename() {
@@ -172,6 +194,24 @@ public Player getAway_SecondPlayer() {
 
 public void setAway_SecondPlayer(Player away_SecondPlayer) {
 	this.away_SecondPlayer = away_SecondPlayer;
+}
+
+@Override
+public String toString() {
+	return "Fixture [matchId=" + matchId + ", matchNumber=" + matchNumber + ", gameNumber=" + gameNumber
+			+ ", matchfilename=" + matchfilename + ", date=" + date + ", categary=" + categary + ", typeOfMatch="
+			+ typeOfMatch + ", day=" + day + ", homePlayerFirst=" + homePlayerFirst + ", homePlayerSecond="
+			+ homePlayerSecond + ", awayPlayerFirst=" + awayPlayerFirst + ", awayPlayerSecond=" + awayPlayerSecond
+			+ ", home_FirstPlayer=" + home_FirstPlayer + ", home_SecondPlayer=" + home_SecondPlayer
+			+ ", away_FirstPlayer=" + away_FirstPlayer + ", away_SecondPlayer=" + away_SecondPlayer + ", getMatchId()="
+			+ getMatchId() + ", getMatchNumber()=" + getMatchNumber() + ", getGameNumber()=" + getGameNumber()
+			+ ", getMatchfilename()=" + getMatchfilename() + ", getDate()=" + getDate() + ", getDay()=" + getDay()
+			+ ", getHomePlayerFirst()=" + getHomePlayerFirst() + ", getHomePlayerSecond()=" + getHomePlayerSecond()
+			+ ", getAwayPlayerFirst()=" + getAwayPlayerFirst() + ", getAwayPlayerSecond()=" + getAwayPlayerSecond()
+			+ ", getCategary()=" + getCategary() + ", getTypeOfMatch()=" + getTypeOfMatch() + ", getHome_FirstPlayer()="
+			+ getHome_FirstPlayer() + ", getHome_SecondPlayer()=" + getHome_SecondPlayer() + ", getAway_FirstPlayer()="
+			+ getAway_FirstPlayer() + ", getAway_SecondPlayer()=" + getAway_SecondPlayer() + ", getClass()="
+			+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 }
 
 }

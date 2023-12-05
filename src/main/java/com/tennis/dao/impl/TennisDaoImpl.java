@@ -9,6 +9,7 @@ import com.tennis.dao.TennisDao;
 import com.tennis.model.Fixture;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
+import com.tennis.model.Result;
 import com.tennis.model.Statistics;
 import com.tennis.model.Team;
 import com.tennis.model.VariousText;
@@ -46,6 +47,13 @@ public List<Fixture> getFixtures() {
 
 @SuppressWarnings("unchecked")
 @Override
+public List<Result> getResults() {
+	return sessionFactory.getCurrentSession().createQuery("from Result").list();
+}
+
+
+@SuppressWarnings("unchecked")
+@Override
 public List<VariousText> getVariousTexts() {
 	return sessionFactory.getCurrentSession().createQuery("from VariousText").list();
 }
@@ -61,5 +69,12 @@ public List<Statistics> getStatistics() {
 public List<Team> getAllTeams() {
 	return sessionFactory.getCurrentSession().createQuery("from Team").list();
 }
+
+@Override
+public Team getTeam(int teamId) {
+	return (Team) sessionFactory.getCurrentSession().createQuery(
+			"from Team WHERE teamId=" + teamId).uniqueResult();
+}
+
 
 }

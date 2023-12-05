@@ -75,8 +75,8 @@ public class Match {
 
   @XmlTransient
   private Player awaySecondPlayer;
-  
-  @XmlElement(name = "clock")
+
+@XmlElement(name = "clock")
   private Clock clock;
   
   @XmlTransient
@@ -85,6 +85,29 @@ public class Match {
   @XmlTransient
   private List<Player> players;
  
+  @XmlTransient
+  private int home_total_score;
+  
+  @XmlTransient
+  private int away_total_score;
+  
+public int getHome_total_score() {
+	return home_total_score;
+}
+
+public void setHome_total_score(int home_total_score) {
+	this.home_total_score = home_total_score;
+}
+
+public int getAway_total_score() {
+	return away_total_score;
+}
+
+public void setAway_total_score(int away_total_score) {
+	this.away_total_score = away_total_score;
+}
+
+  
 public List<Player> getPlayers() {
 	return players;
 }

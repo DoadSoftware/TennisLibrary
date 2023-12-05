@@ -44,6 +44,7 @@ public class TennisUtil {
 
 	public final static String NORMAL = "NORMAL";
 	public final static String TIE_BREAK = "TIE_BREAK";
+	public final static String POINTS = "POINTS";
 	public final static String TIE_BREAK_TO_7 = "TIE_BREAK_TO_7";
 	public final static String NO_ADVANTAGE_DOUBLES = "NO_ADVANTAGE_DOUBLES";
 	

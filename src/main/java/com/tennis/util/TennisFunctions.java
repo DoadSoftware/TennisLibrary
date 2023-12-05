@@ -1,16 +1,22 @@
 package com.tennis.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.tennis.model.Configurations;
 import com.tennis.model.Fixture;
 import com.tennis.model.Game;
 import com.tennis.model.LiveMatchStatsAPI;
@@ -23,7 +29,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class TennisFunctions {
+public class TennisFunctions { 	
 	
 	public static LiveMatchStatsAPI getMatchStatsApi(String url) throws JsonMappingException, JsonProcessingException{
 
@@ -165,7 +171,7 @@ public class TennisFunctions {
 					default:
 						return TennisUtil.LOVE;
 					}
-				case TennisUtil.TIE_BREAK:
+				case TennisUtil.TIE_BREAK: case TennisUtil.POINTS:
 					return String.valueOf(Integer.valueOf(match.getSets().get(set_id).getGames().get(game_id).getHome_score()) + 1);
 				}
 				break;
@@ -195,7 +201,7 @@ public class TennisFunctions {
 					default:
 						return TennisUtil.LOVE;
 					}
-				case TennisUtil.TIE_BREAK:
+				case TennisUtil.TIE_BREAK: case TennisUtil.POINTS:
 					return String.valueOf(Integer.valueOf(match.getSets().get(set_id).getGames().get(game_id).getAway_score()) + 1);
 				}
 				break;
@@ -231,7 +237,7 @@ public class TennisFunctions {
 					default:
 						return TennisUtil.LOVE;
 					}
-				case TennisUtil.TIE_BREAK:
+				case TennisUtil.TIE_BREAK: case TennisUtil.POINTS:
 					if(Integer.valueOf(match.getSets().get(set_id).getGames().get(game_id).getHome_score()) - 1 < 0) {
 						return String.valueOf(0);
 					} else {
@@ -267,7 +273,7 @@ public class TennisFunctions {
 					default:
 						return TennisUtil.LOVE;
 					}
-				case TennisUtil.TIE_BREAK:
+				case TennisUtil.TIE_BREAK: case TennisUtil.POINTS:
 					if(Integer.valueOf(match.getSets().get(set_id).getGames().get(game_id).getAway_score()) - 1 < 0) {
 						return String.valueOf(0);
 					} else {
@@ -288,17 +294,25 @@ public class TennisFunctions {
 	{
 		if(match.getHomeFirstPlayerId() > 0) {
 			match.setHomeFirstPlayer(tennisService.getPlayer(match.getHomeFirstPlayerId()));
+			match.getHomeFirstPlayer().setTeam(tennisService.getTeam(match.getHomeFirstPlayer().getTeamId()));
 		}
 		if(match.getHomeSecondPlayerId() > 0) {
 			match.setHomeSecondPlayer(tennisService.getPlayer(match.getHomeSecondPlayerId()));
+			match.getHomeSecondPlayer().setTeam(tennisService.getTeam(match.getHomeSecondPlayer().getTeamId()));
 		}
 		if(match.getAwayFirstPlayerId() > 0) {
 			match.setAwayFirstPlayer(tennisService.getPlayer(match.getAwayFirstPlayerId()));
+			match.getAwayFirstPlayer().setTeam(tennisService.getTeam(match.getAwayFirstPlayer().getTeamId()));
 		}
 		if(match.getAwaySecondPlayerId() > 0) {
 			match.setAwaySecondPlayer(tennisService.getPlayer(match.getAwaySecondPlayerId()));
+			match.getAwaySecondPlayer().setTeam(tennisService.getTeam(match.getAwaySecondPlayer().getTeamId()));
 		}
 		match.setPlayers(tennisService.getAllPlayer());
+		for(Player plyr : match.getPlayers()) {
+			plyr.setTeam(tennisService.getTeam(plyr.getTeamId()));
+		}
+
 		return match;
 	}
 	

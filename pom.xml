@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tennis</groupId>
   <artifactId>TennisLibrary</artifactId>
-  <version>1.18</version>
+  <version>1.19</version>
   <name>TennisLibrary</name>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>

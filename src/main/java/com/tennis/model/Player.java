@@ -3,6 +3,7 @@ package com.tennis.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Column;
 
 @Entity
@@ -30,7 +31,7 @@ public class Player
   private int rankingSingle;
   
   @Column(name = "RankingDouble")
-  private int rankingDouble;
+  private Integer rankingDouble;
   
   @Column(name = "Nationality")
   private String Nationality;
@@ -40,7 +41,18 @@ public class Player
 
   @Column(name = "TeamId")
   private Integer teamId;
+  
+  @Transient
+  private Team team;
  
+public Team getTeam() {
+	return team;
+}
+
+public void setTeam(Team team) {
+	this.team = team;
+}
+
 public Integer getTeamId() {
 	return teamId;
 }
@@ -97,11 +109,11 @@ public void setRankingSingle(int rankingSingle) {
 	this.rankingSingle = rankingSingle;
 }
 
-public int getRankingDouble() {
+public Integer getRankingDouble() {
 	return rankingDouble;
 }
 
-public void setRankingDouble(int rankingDouble) {
+public void setRankingDouble(Integer rankingDouble) {
 	this.rankingDouble = rankingDouble;
 }
 

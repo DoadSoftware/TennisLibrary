@@ -8,6 +8,7 @@ import com.tennis.dao.TennisDao;
 import com.tennis.model.Fixture;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
+import com.tennis.model.Result;
 import com.tennis.model.Statistics;
 import com.tennis.model.Team;
 import com.tennis.model.VariousText;
@@ -36,6 +37,12 @@ public List<NameSuper> getNameSupers() {
 public List<Fixture> getFixtures() {
 	return tennisDao.getFixtures();
 }
+
+@Override
+public List<Result> getResults() {
+	return tennisDao.getResults();
+}
+
 @Override
 public List<VariousText> getVariousTexts() {
 	return tennisDao.getVariousTexts();
@@ -48,5 +55,8 @@ public List<Statistics> getStatistics() {
 public List<Team> getAllTeams() {
 	return tennisDao.getAllTeams();
 }
-
+@Override
+public Team getTeam(int teamId) {
+	return tennisDao.getTeam(teamId);
+}
 }
