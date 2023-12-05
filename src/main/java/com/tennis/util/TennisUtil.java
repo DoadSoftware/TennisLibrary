@@ -2,9 +2,12 @@ package com.tennis.util;
 
 public class TennisUtil {
 
+	public final static String TENNIS = "TENNIS";
+	
 	public final static String ATP_2022 = "ATP_2022";
 	public final static String TPL_2023 = "TPL_2023";
 	public final static String ATP_CHALLENGERS = "ATP_CHALLENGERS";
+	public final static String NATIONAL = "NATIONAL";
 	
 	public final static String TENNIS_DIRECTORY = "C:/Sports/Tennis/";
 	public final static String EVENT_DIRECTORY = "Event/";
@@ -35,6 +38,8 @@ public class TennisUtil {
 	
 	public final static String ATP_2022_SCOREBUG = "/Default/ScoreBug-Single";
 	public final static String ATP_CHALLENGERS_SCOREBUG = "/Default/ScoreBug-Single";
+	public final static String NATIONAL_SCOREBUG = 
+			"D:\\DOAD_In_House_Everest\\Everest_Sports\\Everest_Khelo_India_2023\\Scenes\\Tennis_Scorebug.sum";
 	
 	public final static String FRONT_LAYER = "FRONT_LAYER";
 	public final static String MIDDLE_LAYER = "MIDDLE_LAYER";
@@ -78,6 +83,9 @@ public class TennisUtil {
 	public final static String SAVE_MATCH = "SAVE_MATCH";
 	public final static String LOAD_UNDO = "LOAD_UNDO";
 	public final static String LOAD_SETUP = "LOAD_SETUP";
+	
+	public final static String LOAD_MATCH_AFTER_STAT_LOG = "LOAD_MATCH_AFTER_STAT_LOG";
+	public final static String READ_MATCH_FOR_STATS = "READ_MATCH_FOR_STATS";
 	
 	public final static String FULL = "FULL";
 	public final static String SHORT = "SHORT";
