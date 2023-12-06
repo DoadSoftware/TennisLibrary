@@ -25,6 +25,9 @@ public class NameSuper
 
   @Column(name = "SUBLINE")
   private String subLine;
+  
+  @Column(name = "LOGO")
+  private String logo;
 
   public NameSuper() {
 		super();
@@ -73,6 +76,14 @@ public String getSubLine() {
 
 public void setSubLine(String subLine) {
 	this.subLine = subLine;
+}
+
+public String getLogo() {
+	return logo;
+}
+
+public void setLogo(String logo) {
+	this.logo = logo;
 }
 
 }
