@@ -27,13 +27,19 @@ public class Result {
   private String day;
   
   @Column(name = "HomeTeam")
-  private String homeTeam;
+  private int homeTeam;
   
   @Column(name = "AwayTeam")
-  private String awayTeam;
+  private int awayTeam;
   
   @Column(name = "MatchResult")
   private String matchResult;
+  
+  @Transient
+  private Team home_Team;
+  
+  @Transient
+  private Team away_Team;
 
 public int getMatchId() {
 	return matchId;
@@ -75,19 +81,19 @@ public void setDay(String day) {
 	this.day = day;
 }
 
-public String getHomeTeam() {
+public int getHomeTeam() {
 	return homeTeam;
 }
 
-public void setHomeTeam(String homeTeam) {
+public void setHomeTeam(int homeTeam) {
 	this.homeTeam = homeTeam;
 }
 
-public String getAwayTeam() {
+public int getAwayTeam() {
 	return awayTeam;
 }
 
-public void setAwayTeam(String awayTeam) {
+public void setAwayTeam(int awayTeam) {
 	this.awayTeam = awayTeam;
 }
 
@@ -97,6 +103,22 @@ public String getMatchResult() {
 
 public void setMatchResult(String matchResult) {
 	this.matchResult = matchResult;
+}
+
+public Team getHome_Team() {
+	return home_Team;
+}
+
+public void setHome_Team(Team home_Team) {
+	this.home_Team = home_Team;
+}
+
+public Team getAway_Team() {
+	return away_Team;
+}
+
+public void setAway_Team(Team away_Team) {
+	this.away_Team = away_Team;
 }
 
 @Override

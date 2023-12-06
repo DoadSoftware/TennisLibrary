@@ -22,8 +22,10 @@ import com.tennis.model.Game;
 import com.tennis.model.LiveMatchStatsAPI;
 import com.tennis.model.Match;
 import com.tennis.model.Player;
+import com.tennis.model.Result;
 import com.tennis.model.Set;
 import com.tennis.model.Stat;
+import com.tennis.model.Team;
 import com.tennis.service.TennisService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -73,6 +75,21 @@ public class TennisFunctions {
 			}
 		}
 		return fixtures;
+	}
+	
+	public static List<Result> processAllResults(TennisService tennisService) {
+		List<Result> results = tennisService.getResults();
+		for(Team tm : tennisService.getAllTeams()) {
+			for(Result res : results) {
+				if(res.getHomeTeam() == tm.getTeamId()) {
+					res.setHome_Team(tm);
+				}
+				if(res.getAwayTeam() == tm.getTeamId()) {
+					res.setAway_Team(tm);
+				}
+			}
+		}
+		return results;
 	}
 	
 	public static Match processStats(Match match, String whatToProcess) 
