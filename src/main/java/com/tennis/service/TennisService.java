@@ -3,6 +3,7 @@ package com.tennis.service;
 import java.util.List;
 
 import com.tennis.model.Fixture;
+import com.tennis.model.Ground;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
 import com.tennis.model.Result;
@@ -20,5 +21,6 @@ public interface TennisService {
   List<VariousText> getVariousTexts();
   List<Statistics> getStatistics();
   List<Result> getResults();
+  List<Ground> getGround();
  
 }

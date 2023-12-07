@@ -3,6 +3,7 @@ package com.tennis.dao;
 import java.util.List;
 
 import com.tennis.model.Fixture;
+import com.tennis.model.Ground;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
 import com.tennis.model.Result;
@@ -19,5 +20,6 @@ public interface TennisDao {
   List<Fixture> getFixtures();
   List<VariousText> getVariousTexts();
   List<Statistics> getStatistics();
-  List<Result> getResults(); 
+  List<Result> getResults();
+  List<Ground> getGround();
 }

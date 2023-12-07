@@ -14,13 +14,13 @@ public class LeagueTable {
 	
 	@XmlElementWrapper(name = "LeagueTeams")
 	  @XmlElement(name = "LeagueTeam")
-	  private List<LeagueTable> LeagueTeams;
+	  private List<LeagueTeam> LeagueTeams;
 
-	public List<LeagueTable> getLeagueTeams() {
+	public List<LeagueTeam> getLeagueTeams() {
 		return LeagueTeams;
 	}
 
-	public void setLeagueTeams(List<LeagueTable> leagueTeams) {
+	public void setLeagueTeams(List<LeagueTeam> leagueTeams) {
 		LeagueTeams = leagueTeams;
 	}
 

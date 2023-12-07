@@ -21,6 +21,9 @@ public class TennisUtil {
 	public final static String DOUBLE_BACKSLASH = "\\";
 	public final static String MATCH = "MATCH";
 	
+	public final static String LEAGUE_TABLE_DIRECTORY = "LeagueTable/";
+	public static final String LEAGUETABLE_XML = "LeagueTable.XML";
+	
 	public static String api_token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhFRkIzQUJENkRGNjE4NzdFRDM0RDJDRkI4ODgyNTAxRjIwNjNGQURSUzI1NiIs"
 			+ "InR5cCI6ImF0K2p3dCIsIng1dCI6Imp2czZ2VzMyR0hmdE5OTFB1SWdsQWZJR1A2MCJ9.eyJuYmYiOjE2NzE3MTcxNzgsImV4cCI6MTY3Njk4NzU3OC"
 			+ "wiaXNzIjoiaHR0cDovL2F1dGgucHJvdGVubmlzbGl2ZS5jb20iLCJhdWQiOiJEYXRhQXBpIiwiY2xpZW50X2lkIjoiUHVuZTg5MVRvdXJuYW1lbnRUb2"

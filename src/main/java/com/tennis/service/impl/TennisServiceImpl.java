@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.tennis.dao.TennisDao;
 import com.tennis.model.Fixture;
+import com.tennis.model.Ground;
 import com.tennis.model.NameSuper;
 import com.tennis.model.Player;
 import com.tennis.model.Result;
@@ -58,5 +59,9 @@ public List<Team> getAllTeams() {
 @Override
 public Team getTeam(int teamId) {
 	return tennisDao.getTeam(teamId);
+}
+@Override
+public List<Ground> getGround() {
+	return tennisDao.getGround();
 }
 }
