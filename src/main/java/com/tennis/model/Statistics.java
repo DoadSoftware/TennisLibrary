@@ -42,6 +42,53 @@ public class Statistics
   
   @Column(name="Earnings")
   private String earnings;
+  
+  @Column(name="BestRankingSingle")
+  private Integer bestRankingSingle;
+  
+  @Column(name="BestRankingDouble")
+  private Integer bestRankingDouble;
+  
+  @Column(name="BestResult1")
+  private String bestResult1;
+  
+  @Column(name="BestResult12")
+  private String bestResult2;
+
+
+
+public String getBestResult1() {
+	return bestResult1;
+}
+
+public void setBestResult1(String bestResult1) {
+	this.bestResult1 = bestResult1;
+}
+
+public String getBestResult2() {
+	return bestResult2;
+}
+
+public void setBestResult2(String bestResult2) {
+	this.bestResult2 = bestResult2;
+}
+
+public Integer getBestRankingSingle() {
+	return bestRankingSingle;
+}
+
+public void setBestRankingSingle(Integer bestRankingSingle) {
+	this.bestRankingSingle = bestRankingSingle;
+}
+
+public Integer getBestRankingDouble() {
+	return bestRankingDouble;
+}
+
+public void setBestRankingDouble(Integer bestRankingDouble) {
+	this.bestRankingDouble = bestRankingDouble;
+}
+
 
 public int getStatistics_id() {
 	return statistics_id;

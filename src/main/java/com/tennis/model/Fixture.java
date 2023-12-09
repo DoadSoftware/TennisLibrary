@@ -32,6 +32,9 @@ public class Fixture {
   @Column(name = "TypeOfMatch")
   private String typeOfMatch;
   
+  @Column(name = "MatchResult")
+  private String matchResult;
+  
   @Column(name = "Day")
   private int day;
   
@@ -194,6 +197,14 @@ public Player getAway_SecondPlayer() {
 
 public void setAway_SecondPlayer(Player away_SecondPlayer) {
 	this.away_SecondPlayer = away_SecondPlayer;
+}
+
+public String getMatchResult() {
+	return matchResult;
+}
+
+public void setMatchResult(String matchResult) {
+	this.matchResult = matchResult;
 }
 
 @Override

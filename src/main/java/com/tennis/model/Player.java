@@ -28,7 +28,7 @@ public class Player
   private String ticker_name;
   
   @Column(name = "RankingSingle")
-  private int rankingSingle;
+  private Integer rankingSingle;
   
   @Column(name = "RankingDouble")
   private Integer rankingDouble;
@@ -101,7 +101,7 @@ public void setTicker_name(String ticker_name) {
 	this.ticker_name = ticker_name;
 }
 
-public int getRankingSingle() {
+public Integer getRankingSingle() {
 	return rankingSingle;
 }
 
