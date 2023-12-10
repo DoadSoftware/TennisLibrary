@@ -15,6 +15,7 @@ public class TennisUtil {
 	public final static String SCENES_DIRECTORY = "Scenes/";
 	public final static String CONFIGURATIONS_DIRECTORY = "Configurations/";
 	public final static String OUTPUT_XML = "OUTPUT.XML";
+	public final static String LOGGER_XML = "LOGGER.XML";
 	public final static String CLOCK_XML = "CLOCK.XML";
 	
 	public final static String PNG_EXTENSION = ".png";
