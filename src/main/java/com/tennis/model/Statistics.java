@@ -52,7 +52,7 @@ public class Statistics
   @Column(name="BestResult1")
   private String bestResult1;
   
-  @Column(name="BestResult12")
+  @Column(name="BestResult2")
   private String bestResult2;
 
 
