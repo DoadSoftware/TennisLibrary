@@ -31,15 +31,6 @@ public class Statistics
   @Column(name="Plays")
   private String plays;
   
-  @Column(name="Titles")
-  private Integer titles;
-  
-  @Column(name="Win")
-  private Integer win;
-  
-  @Column(name="Loss")
-  private Integer loss;
-  
   @Column(name="Earnings")
   private String earnings;
   
@@ -54,6 +45,50 @@ public class Statistics
   
   @Column(name="BestResult2")
   private String bestResult2;
+  
+  @Column(name="WinLossSingles")
+  private String winLossSingles;
+  
+  @Column(name="WinLossDoubles")
+  private String winLossDoubles;
+  
+  @Column(name="TitlesSingles")
+  private Integer titlesSingles;
+  
+  public String getWinLossSingles() {
+	return winLossSingles;
+}
+
+public void setWinLossSingles(String winLossSingles) {
+	this.winLossSingles = winLossSingles;
+}
+
+public String getWinLossDoubles() {
+	return winLossDoubles;
+}
+
+public void setWinLossDoubles(String winLossDoubles) {
+	this.winLossDoubles = winLossDoubles;
+}
+
+public Integer getTitlesSingles() {
+	return titlesSingles;
+}
+
+public void setTitlesSingles(Integer titlesSingles) {
+	this.titlesSingles = titlesSingles;
+}
+
+public Integer getTitlesDoubles() {
+	return titlesDoubles;
+}
+
+public void setTitlesDoubles(Integer titlesDoubles) {
+	this.titlesDoubles = titlesDoubles;
+}
+
+@Column(name="TitlesDoubles")
+  private Integer titlesDoubles;
 
 
 
@@ -144,30 +179,6 @@ public String getPlays() {
 
 public void setPlays(String plays) {
 	this.plays = plays;
-}
-
-public Integer getTitles() {
-	return titles;
-}
-
-public void setTitles(Integer titles) {
-	this.titles = titles;
-}
-
-public Integer getWin() {
-	return win;
-}
-
-public void setWin(Integer win) {
-	this.win = win;
-}
-
-public Integer getLoss() {
-	return loss;
-}
-
-public void setLoss(Integer loss) {
-	this.loss = loss;
 }
 
 public String getEarnings() {
