@@ -35,6 +35,12 @@ public class Result {
   @Column(name = "MatchResult")
   private String matchResult;
   
+  @Column(name = "HomeTieBreaker")
+  private String homeTieBreaker;
+  
+  @Column(name = "AwayTieBreaker")
+  private String awayTieBreaker;
+  
   @Transient
   private Team home_Team;
   
@@ -119,6 +125,22 @@ public Team getAway_Team() {
 
 public void setAway_Team(Team away_Team) {
 	this.away_Team = away_Team;
+}
+
+public String getHomeTieBreaker() {
+	return homeTieBreaker;
+}
+
+public void setHomeTieBreaker(String homeTieBreaker) {
+	this.homeTieBreaker = homeTieBreaker;
+}
+
+public String getAwayTieBreaker() {
+	return awayTieBreaker;
+}
+
+public void setAwayTieBreaker(String awayTieBreaker) {
+	this.awayTieBreaker = awayTieBreaker;
 }
 
 @Override

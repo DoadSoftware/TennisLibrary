@@ -55,75 +55,8 @@ public class Statistics
   @Column(name="TitlesSingles")
   private Integer titlesSingles;
   
-  public String getWinLossSingles() {
-	return winLossSingles;
-}
-
-public void setWinLossSingles(String winLossSingles) {
-	this.winLossSingles = winLossSingles;
-}
-
-public String getWinLossDoubles() {
-	return winLossDoubles;
-}
-
-public void setWinLossDoubles(String winLossDoubles) {
-	this.winLossDoubles = winLossDoubles;
-}
-
-public Integer getTitlesSingles() {
-	return titlesSingles;
-}
-
-public void setTitlesSingles(Integer titlesSingles) {
-	this.titlesSingles = titlesSingles;
-}
-
-public Integer getTitlesDoubles() {
-	return titlesDoubles;
-}
-
-public void setTitlesDoubles(Integer titlesDoubles) {
-	this.titlesDoubles = titlesDoubles;
-}
-
-@Column(name="TitlesDoubles")
+  @Column(name="TitlesDoubles")
   private Integer titlesDoubles;
-
-
-
-public String getBestResult1() {
-	return bestResult1;
-}
-
-public void setBestResult1(String bestResult1) {
-	this.bestResult1 = bestResult1;
-}
-
-public String getBestResult2() {
-	return bestResult2;
-}
-
-public void setBestResult2(String bestResult2) {
-	this.bestResult2 = bestResult2;
-}
-
-public Integer getBestRankingSingle() {
-	return bestRankingSingle;
-}
-
-public void setBestRankingSingle(Integer bestRankingSingle) {
-	this.bestRankingSingle = bestRankingSingle;
-}
-
-public Integer getBestRankingDouble() {
-	return bestRankingDouble;
-}
-
-public void setBestRankingDouble(Integer bestRankingDouble) {
-	this.bestRankingDouble = bestRankingDouble;
-}
-
 
 public int getStatistics_id() {
 	return statistics_id;
@@ -189,5 +122,68 @@ public void setEarnings(String earnings) {
 	this.earnings = earnings;
 }
 
+public Integer getBestRankingSingle() {
+	return bestRankingSingle;
+}
+
+public void setBestRankingSingle(Integer bestRankingSingle) {
+	this.bestRankingSingle = bestRankingSingle;
+}
+
+public Integer getBestRankingDouble() {
+	return bestRankingDouble;
+}
+
+public void setBestRankingDouble(Integer bestRankingDouble) {
+	this.bestRankingDouble = bestRankingDouble;
+}
+
+public String getBestResult1() {
+	return bestResult1;
+}
+
+public void setBestResult1(String bestResult1) {
+	this.bestResult1 = bestResult1;
+}
+
+public String getBestResult2() {
+	return bestResult2;
+}
+
+public void setBestResult2(String bestResult2) {
+	this.bestResult2 = bestResult2;
+}
+
+public String getWinLossSingles() {
+	return winLossSingles;
+}
+
+public void setWinLossSingles(String winLossSingles) {
+	this.winLossSingles = winLossSingles;
+}
+
+public String getWinLossDoubles() {
+	return winLossDoubles;
+}
+
+public void setWinLossDoubles(String winLossDoubles) {
+	this.winLossDoubles = winLossDoubles;
+}
+
+public Integer getTitlesSingles() {
+	return titlesSingles;
+}
+
+public void setTitlesSingles(Integer titlesSingles) {
+	this.titlesSingles = titlesSingles;
+}
+
+public Integer getTitlesDoubles() {
+	return titlesDoubles;
+}
+
+public void setTitlesDoubles(Integer titlesDoubles) {
+	this.titlesDoubles = titlesDoubles;
+}
 
 }
