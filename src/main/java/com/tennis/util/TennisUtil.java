@@ -47,6 +47,7 @@ public class TennisUtil {
 	
 	public final static String FRONT_LAYER = "FRONT_LAYER";
 	public final static String MIDDLE_LAYER = "MIDDLE_LAYER";
+	public final static String BACK_LAYER = "BACK_LAYER";
 	
 	public final static String ONE = "1";
 	public final static String TWO = "2";
