@@ -1,29 +1,20 @@
 package com.tennis.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-@XmlRootElement(name="Sets")
-@XmlAccessorType(XmlAccessType.FIELD)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Set {
 	
-	@XmlElement(name="setNumber")
 	private int set_number;
 
-	@XmlElement(name="setStatus")
 	private String set_status;
 	
-	@XmlElement(name="setWinner")
 	private String set_winner;
 
-    @XmlElementWrapper(name = "games")
-    @XmlElement(name = "game")
     private List<Game> games;
 
 	public Set(int set_number, String set_status, List<Game> games) {
@@ -36,6 +27,13 @@ public class Set {
 	public Set() {
 		super();
 	}
+	public int getSet_number() {
+		return set_number;
+	}
+
+	public void setSet_number(int set_number) {
+		this.set_number = set_number;
+	}
 
 	public String getSet_status() {
 		return set_status;
@@ -43,18 +41,6 @@ public class Set {
 
 	public void setSet_status(String set_status) {
 		this.set_status = set_status;
-	}
-
-	public void setGames(List<Game> games) {
-		this.games = games;
-	}
-
-	public int getSet_number() {
-		return set_number;
-	}
-
-	public void setSet_number(int set_number) {
-		this.set_number = set_number;
 	}
 
 	public String getSet_winner() {
@@ -69,7 +55,7 @@ public class Set {
 		return games;
 	}
 
-	public void setGames(ArrayList<Game> games) {
+	public void setGames(List<Game> games) {
 		this.games = games;
 	}
 

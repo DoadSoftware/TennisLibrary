@@ -1,40 +1,26 @@
 package com.tennis.model;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name="Games")
-@XmlAccessorType(XmlAccessType.FIELD)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Game {
 	
-	@XmlElement(name="gameNumber")
 	private int game_number;
-	
-	@XmlElement(name="servingPlayer")
 	private int serving_player;
 
-	@XmlElement(name="homeScore")
 	private String home_score;
 
-	@XmlElement(name="awayScore")
 	private String away_score;
 
-	@XmlElement(name="gameStatus")
 	private String game_status;
 	
-	@XmlElement(name="gameWinner")
 	private String game_winner;
 
-	@XmlElement(name="gameType")
 	private String game_type;
 	
-    @XmlElementWrapper(name = "stats")
-    @XmlElement(name = "stat")
     private List<Stat> stats;
 	
 	public Game() {

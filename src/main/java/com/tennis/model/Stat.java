@@ -1,21 +1,16 @@
 package com.tennis.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-@XmlRootElement(name="Stats")
-@XmlAccessorType(XmlAccessType.FIELD)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Stat {
 	
-	@XmlElement(name="statNumber")
 	private int statNumber;
 
-	@XmlElement(name="statType")
 	private String statType;
 	
-	@XmlElement(name="playerId")
 	private int playerId;
 
 	public Stat() {

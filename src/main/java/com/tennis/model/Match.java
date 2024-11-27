@@ -1,94 +1,72 @@
 package com.tennis.model;
 
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
-@XmlRootElement(name="Match")
-@XmlAccessorType(XmlAccessType.FIELD)
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Match {
 
-  @XmlElement(name = "matchFileTimeStamp")
   private String matchFileTimeStamp;
 
-  @XmlElement(name = "matchResult")
   private String matchResult;
 
-  @XmlElement(name = "tieBreakerRule")
   private String tieBreakerRule;
 
-  @XmlElement(name = "advantageRule")
   private String advantageRule;
   
-  @XmlElement(name = "matchStatus")
   private String matchStatus;
   
-  @XmlElement(name = "matchFileName")
   private String matchFileName;
 
-  @XmlElement(name = "tournament")
   private String tournament;
 
-  @XmlElement(name = "matchIdent")
   private String matchIdent;
   
-  @XmlElement(name = "categoryType")
   private String categoryType;
   
-  @XmlElement(name = "matchType")
   private String matchType;
   
-  @XmlElement(name = "matchId")
   private String matchId;
 
-  @XmlElement(name = "homeFirstPlayerId")
   private int homeFirstPlayerId;
 
-  @XmlElement(name = "homeSecondPlayerId")
   private int homeSecondPlayerId;
 
-  @XmlElement(name = "awayFirstPlayerId")
   private int awayFirstPlayerId;
 
-  @XmlElement(name = "awaySecondPlayerId")
   private int awaySecondPlayerId;
   
-  @XmlElement(name = "retiredHurtPlayerId")
   private int retiredHurtPlayerId;
 
-  @XmlElementWrapper(name = "sets")
-  @XmlElement(name = "set")
   private List<Set> sets;
   
-  @XmlTransient
+  @JsonIgnore 
   private Player homeFirstPlayer;
 
-  @XmlTransient
+    @JsonIgnore 
   private Player homeSecondPlayer;
   
-  @XmlTransient
+    @JsonIgnore 
   private Player awayFirstPlayer;
 
-  @XmlTransient
+    @JsonIgnore 
   private Player awaySecondPlayer;
 
-@XmlElement(name = "clock")
   private Clock clock;
   
-  @XmlTransient
+    @JsonIgnore 
   private List<Event> events;
 
-  @XmlTransient
+    @JsonIgnore 
   private List<Player> players;
  
-  @XmlTransient
+    @JsonIgnore 
   private int home_total_score;
   
-  @XmlTransient
+    @JsonIgnore 
   private int away_total_score;
   
 public int getHome_total_score() {

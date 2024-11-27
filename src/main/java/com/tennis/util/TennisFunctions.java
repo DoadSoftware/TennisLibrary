@@ -1,22 +1,16 @@
 package com.tennis.util;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.tennis.model.Configurations;
+import com.tennis.model.API_Tournament;
 import com.tennis.model.Fixture;
 import com.tennis.model.Game;
 import com.tennis.model.LiveMatchStatsAPI;
@@ -50,6 +44,22 @@ public class TennisFunctions {
 
 
 		return liveMatchStatsAPI;
+	}
+	public static API_Tournament getTournamentMatchStatsApi(String url) throws JsonMappingException, JsonProcessingException {
+	    API_Tournament apiTournament = new API_Tournament();
+	    
+	    HttpResponse<String> userResp;
+	    try {
+	        userResp = Unirest.get(url)
+	                .header("Content-Type", "application/json;charset=utf-8")
+	                .header("Authorization", "Bearer " + TennisUtil.api_token)
+	                .asString();
+	        apiTournament = new ObjectMapper().readValue(userResp.getBody(), API_Tournament.class);
+	    } catch (UnirestException e) {
+	        System.out.println("Error...");
+	    }
+
+	    return apiTournament;
 	}
 	
 	public static List<Fixture> processAllFixtures(TennisService tennisService) {
