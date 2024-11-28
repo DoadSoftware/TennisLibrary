@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
@@ -115,6 +116,16 @@ public class TennisFunctions {
 			}
 		}
 		return fixtures;
+	}
+	
+	public static List<Player> processMatchPlayers(TennisService tennisService, Match match) {
+		List<Player> players = new ArrayList<Player>();
+		for(Player plyr : tennisService.getAllPlayer()) {
+			if(match.getHomeFirstPlayer().getTeamId() == plyr.getTeamId() || match.getAwayFirstPlayer().getTeamId() == plyr.getTeamId()) {
+				players.add(plyr);
+			}
+		}
+		return players;
 	}
 	
 	public static List<Result> processAllResults(TennisService tennisService) {
