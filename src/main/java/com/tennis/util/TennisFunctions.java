@@ -22,6 +22,7 @@ import com.tennis.model.Stat;
 import com.tennis.model.Team;
 import com.tennis.service.TennisService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -45,6 +46,35 @@ public class TennisFunctions {
 
 		return liveMatchStatsAPI;
 	}
+	 public static API_Tournament getMatchStatApi(String url) throws Exception {
+		 HttpResponse<String> userResp = null;
+		 try {
+		     userResp = Unirest.get(url)
+		                       .header("Content-Type", "application/json;charset=utf-8")
+		                       .asString();
+		     
+		     if (userResp.getStatus() == 200) {
+		         ObjectMapper objectMapper = new ObjectMapper();
+		         List<API_Tournament> tournamentList = objectMapper.readValue(userResp.getBody(), 
+		             objectMapper.getTypeFactory().constructCollectionType(List.class, API_Tournament.class));
+		         
+		         if (tournamentList.isEmpty()) {
+		             return null;
+		         }
+		         
+		         return tournamentList.get(0);
+		     } else {
+		         System.out.println("Error: " + userResp.getStatus());
+		         return null;
+		     }
+
+		 } catch (Exception e) {
+		     System.out.println("Error occurred: " + e.getMessage());
+		     e.printStackTrace();
+		     return null;
+		 }
+	 }
+
 	public static API_Tournament getTournamentMatchStatsApi(String url) throws JsonMappingException, JsonProcessingException {
 	    API_Tournament apiTournament = new API_Tournament();
 	    

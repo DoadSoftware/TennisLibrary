@@ -1,10 +1,11 @@
 package com.tennis.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.List;
 
- public class API_Tournament {
+@JsonIgnoreProperties(ignoreUnknown = true) 
+public class API_Tournament {
 
     @JsonProperty("tournament")
     private String tournament;
@@ -16,19 +17,31 @@ import java.util.List;
     private int day;
 
     @JsonProperty("match_no")
-    private int match_no;
+    private int matchNo;
+
+    @JsonProperty("game_no")
+    private int gameNo;
 
     @JsonProperty("match_id")
-    private int match_id;
+    private int matchId;
+
+    @JsonProperty("team_a_id")
+    private int teamAId;
 
     @JsonProperty("team_a")
-    private String team_a;
+    private String teamA;
+
+    @JsonProperty("team_b_id")
+    private int teamBId;
 
     @JsonProperty("team_b")
-    private String team_b;
+    private String teamB;
+
+    @JsonProperty("game_name")
+    private String gameName;
 
     @JsonProperty("match_status")
-    private String match_status;
+    private String matchStatus;
 
     @JsonProperty("score")
     private Score score;
@@ -40,16 +53,26 @@ import java.util.List;
     private Squad squad;
 
     @JsonProperty("playerwise_stat")
-    private PlayerwiseStat playerwise_stat;
+    private PlayerwiseStat playerwiseStat;
 
     @JsonProperty("teamwise_stat")
-    private TeamwiseStat teamwise_stat;
+    private TeamwiseStat teamwiseStat;
 
     @JsonProperty("leader_board")
-    private LeaderBoard leader_board;
+    private List<List<LeaderBoard>> leaderBoard;
 
+   
 
-    public String getTournament() {
+    @Override
+	public String toString() {
+		return "TournamentDetails [tournament=" + tournament + ", venue=" + venue + ", day=" + day + ", matchNo="
+				+ matchNo + ", gameNo=" + gameNo + ", matchId=" + matchId + ", teamAId=" + teamAId + ", teamA=" + teamA
+				+ ", teamBId=" + teamBId + ", teamB=" + teamB + ", gameName=" + gameName + ", matchStatus="
+				+ matchStatus + ", score=" + score + ", winner=" + winner + ", squad=" + squad + ", playerwiseStat="
+				+ playerwiseStat + ", teamwiseStat=" + teamwiseStat + ", leaderBoard=" + leaderBoard + "]";
+	}
+
+	public String getTournament() {
 		return tournament;
 	}
 
@@ -73,44 +96,76 @@ import java.util.List;
 		this.day = day;
 	}
 
-	public int getMatch_no() {
-		return match_no;
+	public int getMatchNo() {
+		return matchNo;
 	}
 
-	public void setMatch_no(int match_no) {
-		this.match_no = match_no;
+	public void setMatchNo(int matchNo) {
+		this.matchNo = matchNo;
 	}
 
-	public int getMatch_id() {
-		return match_id;
+	public int getGameNo() {
+		return gameNo;
 	}
 
-	public void setMatch_id(int match_id) {
-		this.match_id = match_id;
+	public void setGameNo(int gameNo) {
+		this.gameNo = gameNo;
 	}
 
-	public String getTeam_a() {
-		return team_a;
+	public int getMatchId() {
+		return matchId;
 	}
 
-	public void setTeam_a(String team_a) {
-		this.team_a = team_a;
+	public void setMatchId(int matchId) {
+		this.matchId = matchId;
 	}
 
-	public String getTeam_b() {
-		return team_b;
+	public int getTeamAId() {
+		return teamAId;
 	}
 
-	public void setTeam_b(String team_b) {
-		this.team_b = team_b;
+	public void setTeamAId(int teamAId) {
+		this.teamAId = teamAId;
 	}
 
-	public String getMatch_status() {
-		return match_status;
+	public String getTeamA() {
+		return teamA;
 	}
 
-	public void setMatch_status(String match_status) {
-		this.match_status = match_status;
+	public void setTeamA(String teamA) {
+		this.teamA = teamA;
+	}
+
+	public int getTeamBId() {
+		return teamBId;
+	}
+
+	public void setTeamBId(int teamBId) {
+		this.teamBId = teamBId;
+	}
+
+	public String getTeamB() {
+		return teamB;
+	}
+
+	public void setTeamB(String teamB) {
+		this.teamB = teamB;
+	}
+
+	public String getGameName() {
+		return gameName;
+	}
+
+	public void setGameName(String gameName) {
+		this.gameName = gameName;
+	}
+
+	public String getMatchStatus() {
+		return matchStatus;
+	}
+
+	public void setMatchStatus(String matchStatus) {
+		this.matchStatus = matchStatus;
 	}
 
 	public Score getScore() {
@@ -137,202 +192,311 @@ import java.util.List;
 		this.squad = squad;
 	}
 
-	public PlayerwiseStat getPlayerwise_stat() {
-		return playerwise_stat;
+	public PlayerwiseStat getPlayerwiseStat() {
+		return playerwiseStat;
 	}
 
-	public void setPlayerwise_stat(PlayerwiseStat playerwise_stat) {
-		this.playerwise_stat = playerwise_stat;
+	public void setPlayerwiseStat(PlayerwiseStat playerwiseStat) {
+		this.playerwiseStat = playerwiseStat;
 	}
 
-	public TeamwiseStat getTeamwise_stat() {
-		return teamwise_stat;
+	public TeamwiseStat getTeamwiseStat() {
+		return teamwiseStat;
 	}
 
-	public void setTeamwise_stat(TeamwiseStat teamwise_stat) {
-		this.teamwise_stat = teamwise_stat;
+	public void setTeamwiseStat(TeamwiseStat teamwiseStat) {
+		this.teamwiseStat = teamwiseStat;
 	}
 
-	public LeaderBoard getLeader_board() {
-		return leader_board;
+	public List<List<LeaderBoard>> getLeaderBoard() {
+		return leaderBoard;
 	}
 
-	public void setLeader_board(LeaderBoard leader_board) {
-		this.leader_board = leader_board;
+	public void setLeaderBoard(List<List<LeaderBoard>> leaderBoard) {
+		this.leaderBoard = leaderBoard;
 	}
-	
-	public API_Tournament() {
-		super();
-	}
-
-	@Override
-	public String toString() {
-		return "API_Tournament [tournament=" + tournament + ", venue=" + venue + ", day=" + day + ", match_no="
-				+ match_no + ", match_id=" + match_id + ", team_a=" + team_a + ", team_b=" + team_b + ", match_status="
-				+ match_status + ", score=" + score + ", winner=" + winner + ", squad=" + squad + ", playerwise_stat="
-				+ playerwise_stat + ", teamwise_stat=" + teamwise_stat + ", leader_board=" + leader_board + "]";
-	}
-
-
+	@JsonIgnoreProperties(ignoreUnknown = true) 
 	public static class Score {
-
         @JsonProperty("team_a")
-        private List<ScoreItem> team_a;
+        private List<GameScore> teamA;
 
         @JsonProperty("team_b")
-        private List<ScoreItem> team_b;
+        private List<GameScore> teamB;
 
-		public List<ScoreItem> getTeam_a() {
-			return team_a;
+        public List<GameScore> getTeamA() {
+            return teamA;
+        }
+
+        public void setTeamA(List<GameScore> teamA) {
+            this.teamA = teamA;
+        }
+
+        public List<GameScore> getTeamB() {
+            return teamB;
+        }
+
+        public void setTeamB(List<GameScore> teamB) {
+            this.teamB = teamB;
+        }
+    }
+	@JsonIgnoreProperties(ignoreUnknown = true) 
+    public static class GameScore {
+        @JsonProperty("game_1")
+        private String game1;
+
+        @JsonProperty("game_1_points")
+        private int game1Points;
+
+        @JsonProperty("game_2")
+        private String game2;
+
+        @JsonProperty("game_2_points")
+        private int game2Points;
+
+        @JsonProperty("game_3")
+        private String game3;
+
+        @JsonProperty("game_3_points")
+        private int game3Points;
+
+        @JsonProperty("game_4")
+        private String game4;
+
+        @JsonProperty("game_4_points")
+        private int game4Points;
+
+        @JsonProperty("total")
+        private String total;
+
+        @JsonProperty("total_points")
+        private int totalPoints;
+
+		public String getGame1() {
+			return game1;
 		}
 
-		public void setTeam_a(List<ScoreItem> team_a) {
-			this.team_a = team_a;
+		public void setGame1(String game1) {
+			this.game1 = game1;
 		}
 
-		public List<ScoreItem> getTeam_b() {
-			return team_b;
+		public int getGame1Points() {
+			return game1Points;
 		}
 
-		public void setTeam_b(List<ScoreItem> team_b) {
-			this.team_b = team_b;
+		public void setGame1Points(int game1Points) {
+			this.game1Points = game1Points;
 		}
 
-		public Score() {
-			super();
-			
+		public String getGame2() {
+			return game2;
+		}
+
+		public void setGame2(String game2) {
+			this.game2 = game2;
+		}
+
+		public int getGame2Points() {
+			return game2Points;
+		}
+
+		public void setGame2Points(int game2Points) {
+			this.game2Points = game2Points;
+		}
+
+		public String getGame3() {
+			return game3;
+		}
+
+		public void setGame3(String game3) {
+			this.game3 = game3;
+		}
+
+		public int getGame3Points() {
+			return game3Points;
+		}
+
+		public void setGame3Points(int game3Points) {
+			this.game3Points = game3Points;
+		}
+
+		public String getGame4() {
+			return game4;
+		}
+
+		public void setGame4(String game4) {
+			this.game4 = game4;
+		}
+
+		public int getGame4Points() {
+			return game4Points;
+		}
+
+		public void setGame4Points(int game4Points) {
+			this.game4Points = game4Points;
+		}
+
+		public String getTotal() {
+			return total;
+		}
+
+		public void setTotal(String total) {
+			this.total = total;
+		}
+
+		public int getTotalPoints() {
+			return totalPoints;
+		}
+
+		public void setTotalPoints(int totalPoints) {
+			this.totalPoints = totalPoints;
 		}
 
 		@Override
 		public String toString() {
-			return "Score [team_a=" + team_a + ", team_b=" + team_b + "]";
+			return "GameScore [game1=" + game1 + ", game1Points=" + game1Points + ", game2=" + game2 + ", game2Points="
+					+ game2Points + ", game3=" + game3 + ", game3Points=" + game3Points + ", game4=" + game4
+					+ ", game4Points=" + game4Points + ", total=" + total + ", totalPoints=" + totalPoints + "]";
 		}
 
        
     }
 
-    public static class ScoreItem {
-
-        @JsonProperty("name")
-        private String name;
-
-        @JsonProperty("value")
-        private int value;
-
-        @JsonCreator
-        public ScoreItem(@JsonProperty("name") String name, @JsonProperty("value") int value) {
-            this.name = name;
-            this.value = value;
-        }
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public int getValue() {
-			return value;
-		}
-
-		public void setValue(int value) {
-			this.value = value;
-		}
-
-		public ScoreItem() {
-			super();
-			
-		}
-
-		@Override
-		public String toString() {
-			return "ScoreItem [name=" + name + ", value=" + value + "]";
-		}
-
-    }
-
+    @JsonIgnoreProperties(ignoreUnknown = true) 
     public static class Winner {
+        @JsonProperty("game_1")
+        private String game1;
 
-        @JsonProperty("name")
-        private String name;
+        @JsonProperty("game_1_winner")
+        private String game1Winner;
 
-        @JsonProperty("value")
-        private String value;
+        @JsonProperty("game_2")
+        private String game2;
 
-		public String getName() {
-			return name;
+        @JsonProperty("game_2_winner")
+        private String game2Winner;
+
+        @JsonProperty("game_3")
+        private String game3;
+
+        @JsonProperty("game_3_winner")
+        private String game3Winner;
+
+        @JsonProperty("game_4")
+        private String game4;
+
+        @JsonProperty("game_4_winner")
+        private String game4Winner;
+
+		public String getGame1() {
+			return game1;
 		}
 
-		public void setName(String name) {
-			this.name = name;
+		public void setGame1(String game1) {
+			this.game1 = game1;
 		}
 
-		public String getValue() {
-			return value;
+		public String getGame1Winner() {
+			return game1Winner;
 		}
 
-		public void setValue(String value) {
-			this.value = value;
+		public void setGame1Winner(String game1Winner) {
+			this.game1Winner = game1Winner;
 		}
 
-		public Winner() {
-			super();
-			
+		public String getGame2() {
+			return game2;
+		}
+
+		public void setGame2(String game2) {
+			this.game2 = game2;
+		}
+
+		public String getGame2Winner() {
+			return game2Winner;
+		}
+
+		public void setGame2Winner(String game2Winner) {
+			this.game2Winner = game2Winner;
+		}
+
+		public String getGame3() {
+			return game3;
+		}
+
+		public void setGame3(String game3) {
+			this.game3 = game3;
+		}
+
+		public String getGame3Winner() {
+			return game3Winner;
+		}
+
+		public void setGame3Winner(String game3Winner) {
+			this.game3Winner = game3Winner;
+		}
+
+		public String getGame4() {
+			return game4;
+		}
+
+		public void setGame4(String game4) {
+			this.game4 = game4;
+		}
+
+		public String getGame4Winner() {
+			return game4Winner;
+		}
+
+		public void setGame4Winner(String game4Winner) {
+			this.game4Winner = game4Winner;
 		}
 
 		@Override
 		public String toString() {
-			return "Winner [name=" + name + ", value=" + value + "]";
+			return "Winner [game1=" + game1 + ", game1Winner=" + game1Winner + ", game2=" + game2 + ", game2Winner="
+					+ game2Winner + ", game3=" + game3 + ", game3Winner=" + game3Winner + ", game4=" + game4
+					+ ", game4Winner=" + game4Winner + "]";
 		}
-        
+
+       
     }
-
+    @JsonIgnoreProperties(ignoreUnknown = true) 
     public static class Squad {
-
         @JsonProperty("team_a")
-        private List<Player> team_a;
+        private List<Player> teamA;
 
         @JsonProperty("team_b")
-        private List<Player> team_b;
+        private List<Player> teamB;
 
-		public List<Player> getTeam_a() {
-			return team_a;
-		}
+        public List<Player> getTeamA() {
+            return teamA;
+        }
 
-		public void setTeam_a(List<Player> team_a) {
-			this.team_a = team_a;
-		}
+        public void setTeamA(List<Player> teamA) {
+            this.teamA = teamA;
+        }
 
-		public List<Player> getTeam_b() {
-			return team_b;
-		}
+        public List<Player> getTeamB() {
+            return teamB;
+        }
 
-		public void setTeam_b(List<Player> team_b) {
-			this.team_b = team_b;
-		}
-
-		public Squad() {
-			super();
-			
-		}
+        public void setTeamB(List<Player> teamB) {
+            this.teamB = teamB;
+        }
 
 		@Override
 		public String toString() {
-			return "Squad [team_a=" + team_a + ", team_b=" + team_b + "]";
+			return "Squad [teamA=" + teamA + ", teamB=" + teamB + "]";
 		}
-
         
     }
-
+    @JsonIgnoreProperties(ignoreUnknown = true) 
     public static class Player {
-
         @JsonProperty("player_id")
-        private String player_id;
+        private int playerId;
 
         @JsonProperty("player_name")
-        private String player_name;
+        private String playerName;
 
         @JsonProperty("gender")
         private String gender;
@@ -343,20 +507,26 @@ import java.util.List;
         @JsonProperty("nationality")
         private String nationality;
 
-		public String getPlayer_id() {
-			return player_id;
+		@Override
+		public String toString() {
+			return "Player [playerId=" + playerId + ", playerName=" + playerName + ", gender=" + gender + ", age=" + age
+					+ ", nationality=" + nationality + "]";
 		}
 
-		public void setPlayer_id(String player_id) {
-			this.player_id = player_id;
+		public int getPlayerId() {
+			return playerId;
 		}
 
-		public String getPlayer_name() {
-			return player_name;
+		public void setPlayerId(int playerId) {
+			this.playerId = playerId;
 		}
 
-		public void setPlayer_name(String player_name) {
-			this.player_name = player_name;
+		public String getPlayerName() {
+			return playerName;
+		}
+
+		public void setPlayerName(String playerName) {
+			this.playerName = playerName;
 		}
 
 		public String getGender() {
@@ -383,76 +553,60 @@ import java.util.List;
 			this.nationality = nationality;
 		}
 
-		@Override
-		public String toString() {
-			return "Player [player_id=" + player_id + ", player_name=" + player_name + ", gender=" + gender + ", age="
-					+ age + ", nationality=" + nationality + "]";
-		}
-
-		public Player() {
-			super();
-			
-		}
+        
     }
-
+    @JsonIgnoreProperties(ignoreUnknown = true) 
     public static class PlayerwiseStat {
-
         @JsonProperty("team_a")
-        private List<PlayerStat> team_a;
+        private List<PlayerStat> teamA;
 
         @JsonProperty("team_b")
-        private List<PlayerStat> team_b;
+        private List<PlayerStat> teamB;
 
-		public List<PlayerStat> getTeam_a() {
-			return team_a;
-		}
+        public List<PlayerStat> getTeamA() {
+            return teamA;
+        }
 
-		public void setTeam_a(List<PlayerStat> team_a) {
-			this.team_a = team_a;
-		}
+        public void setTeamA(List<PlayerStat> teamA) {
+            this.teamA = teamA;
+        }
 
-		public List<PlayerStat> getTeam_b() {
-			return team_b;
-		}
+        public List<PlayerStat> getTeamB() {
+            return teamB;
+        }
 
-		public void setTeam_b(List<PlayerStat> team_b) {
-			this.team_b = team_b;
-		}
+        public void setTeamB(List<PlayerStat> teamB) {
+            this.teamB = teamB;
+        }
 
 		@Override
 		public String toString() {
-			return "PlayerwiseStat [team_a=" + team_a + ", team_b=" + team_b + "]";
+			return "PlayerwiseStat [teamA=" + teamA + ", teamB=" + teamB + "]";
 		}
-
-		public PlayerwiseStat() {
-			super();
-			
-		}
-
+        
     }
-
+    @JsonIgnoreProperties(ignoreUnknown = true) 
     public static class PlayerStat {
-
         @JsonProperty("player_name")
-        private String player_name;
+        private String playerName;
 
         @JsonProperty("player_id")
-        private String player_id;
+        private int playerId;
 
         @JsonProperty("mens_singles_points")
-        private int mens_singles_points;
+        private int mensSinglesPoints;
 
         @JsonProperty("mens_doubles_points")
-        private int mens_doubles_points;
+        private int mensDoublesPoints;
+        
+        @JsonProperty("womens_singles_points")  
+        private int womensSinglesPoints;
 
-        @JsonProperty("womens_singles_points")
-        private int womens_singles_points;
-
-        @JsonProperty("womens_doubles_points")
-        private int womens_doubles_points;
+        @JsonProperty("womens_doubles_points")  
+        private int womensDoublesPoints;
 
         @JsonProperty("total_points")
-        private int total_points;
+        private int totalPoints;
 
         @JsonProperty("aces")
         private int aces;
@@ -461,65 +615,49 @@ import java.util.List;
         private int winners;
 
         @JsonProperty("unforced_errors")
-        private int unforced_errors;
+        private int unforcedErrors;
 
         @JsonProperty("double_faults")
-        private int double_faults;
+        private int doubleFaults;
 
-		public String getPlayer_name() {
-			return player_name;
+		public String getPlayerName() {
+			return playerName;
 		}
 
-		public void setPlayer_name(String player_name) {
-			this.player_name = player_name;
+		public void setPlayerName(String playerName) {
+			this.playerName = playerName;
 		}
 
-		public String getPlayer_id() {
-			return player_id;
+		public int getPlayerId() {
+			return playerId;
 		}
 
-		public void setPlayer_id(String player_id) {
-			this.player_id = player_id;
+		public void setPlayerId(int playerId) {
+			this.playerId = playerId;
 		}
 
-		public int getMens_singles_points() {
-			return mens_singles_points;
+		public int getMensSinglesPoints() {
+			return mensSinglesPoints;
 		}
 
-		public void setMens_singles_points(int mens_singles_points) {
-			this.mens_singles_points = mens_singles_points;
+		public void setMensSinglesPoints(int mensSinglesPoints) {
+			this.mensSinglesPoints = mensSinglesPoints;
 		}
 
-		public int getMens_doubles_points() {
-			return mens_doubles_points;
+		public int getMensDoublesPoints() {
+			return mensDoublesPoints;
 		}
 
-		public void setMens_doubles_points(int mens_doubles_points) {
-			this.mens_doubles_points = mens_doubles_points;
+		public void setMensDoublesPoints(int mensDoublesPoints) {
+			this.mensDoublesPoints = mensDoublesPoints;
 		}
 
-		public int getWomens_singles_points() {
-			return womens_singles_points;
+		public int getTotalPoints() {
+			return totalPoints;
 		}
 
-		public void setWomens_singles_points(int womens_singles_points) {
-			this.womens_singles_points = womens_singles_points;
-		}
-
-		public int getWomens_doubles_points() {
-			return womens_doubles_points;
-		}
-
-		public void setWomens_doubles_points(int womens_doubles_points) {
-			this.womens_doubles_points = womens_doubles_points;
-		}
-
-		public int getTotal_points() {
-			return total_points;
-		}
-
-		public void setTotal_points(int total_points) {
-			this.total_points = total_points;
+		public void setTotalPoints(int totalPoints) {
+			this.totalPoints = totalPoints;
 		}
 
 		public int getAces() {
@@ -538,86 +676,83 @@ import java.util.List;
 			this.winners = winners;
 		}
 
-		public int getUnforced_errors() {
-			return unforced_errors;
+		public int getUnforcedErrors() {
+			return unforcedErrors;
 		}
 
-		public void setUnforced_errors(int unforced_errors) {
-			this.unforced_errors = unforced_errors;
+		public void setUnforcedErrors(int unforcedErrors) {
+			this.unforcedErrors = unforcedErrors;
 		}
 
-		public int getDouble_faults() {
-			return double_faults;
+		public int getDoubleFaults() {
+			return doubleFaults;
 		}
 
-		public void setDouble_faults(int double_faults) {
-			this.double_faults = double_faults;
+		public void setDoubleFaults(int doubleFaults) {
+			this.doubleFaults = doubleFaults;
+		}
+
+		public int getWomensSinglesPoints() {
+			return womensSinglesPoints;
+		}
+
+		public void setWomensSinglesPoints(int womensSinglesPoints) {
+			this.womensSinglesPoints = womensSinglesPoints;
+		}
+
+		public int getWomensDoublesPoints() {
+			return womensDoublesPoints;
+		}
+
+		public void setWomensDoublesPoints(int womensDoublesPoints) {
+			this.womensDoublesPoints = womensDoublesPoints;
 		}
 
 		@Override
 		public String toString() {
-			return "PlayerStat [player_name=" + player_name + ", player_id=" + player_id + ", mens_singles_points="
-					+ mens_singles_points + ", mens_doubles_points=" + mens_doubles_points + ", womens_singles_points="
-					+ womens_singles_points + ", womens_doubles_points=" + womens_doubles_points + ", total_points="
-					+ total_points + ", aces=" + aces + ", winners=" + winners + ", unforced_errors=" + unforced_errors
-					+ ", double_faults=" + double_faults + "]";
+			return "PlayerStat [playerName=" + playerName + ", playerId=" + playerId + ", mensSinglesPoints="
+					+ mensSinglesPoints + ", mensDoublesPoints=" + mensDoublesPoints + ", womensSinglesPoints="
+					+ womensSinglesPoints + ", womensDoublesPoints=" + womensDoublesPoints + ", totalPoints="
+					+ totalPoints + ", aces=" + aces + ", winners=" + winners + ", unforcedErrors=" + unforcedErrors
+					+ ", doubleFaults=" + doubleFaults + "]";
 		}
 
-		public PlayerStat() {
-			super();
-			
-		}
-
-
+        
     }
-
+    @JsonIgnoreProperties(ignoreUnknown = true) 
     public static class TeamwiseStat {
-
         @JsonProperty("team_a")
-        private List<TeamStat> team_a;
+        private List<TeamStat> teamA;
 
         @JsonProperty("team_b")
-        private List<TeamStat> team_b;
+        private List<TeamStat> teamB;
 
-		public List<TeamStat> getTeam_a() {
-			return team_a;
-		}
+        public List<TeamStat> getTeamA() {
+            return teamA;
+        }
 
-		public void setTeam_a(List<TeamStat> team_a) {
-			this.team_a = team_a;
-		}
+        public void setTeamA(List<TeamStat> teamA) {
+            this.teamA = teamA;
+        }
 
-		public List<TeamStat> getTeam_b() {
-			return team_b;
-		}
+        public List<TeamStat> getTeamB() {
+            return teamB;
+        }
 
-		public void setTeam_b(List<TeamStat> team_b) {
-			this.team_b = team_b;
-		}
-
-		@Override
-		public String toString() {
-			return "TeamwiseStat [team_a=" + team_a + ", team_b=" + team_b + "]";
-		}
-
-		public TeamwiseStat() {
-			super();
-			
-		}
-
-
+        public void setTeamB(List<TeamStat> teamB) {
+            this.teamB = teamB;
+        }
     }
-
+    @JsonIgnoreProperties(ignoreUnknown = true) 
     public static class TeamStat {
-
         @JsonProperty("team_name")
-        private String team_name;
+        private String teamName;
 
         @JsonProperty("team_id")
-        private int team_id;
+        private int teamId;
 
         @JsonProperty("total_points")
-        private int total_points;
+        private int totalPoints;
 
         @JsonProperty("aces")
         private int aces;
@@ -626,33 +761,33 @@ import java.util.List;
         private int winners;
 
         @JsonProperty("unforced_errors")
-        private int unforced_errors;
+        private int unforcedErrors;
 
         @JsonProperty("double_faults")
-        private int double_faults;
+        private int doubleFaults;
 
-		public String getTeam_name() {
-			return team_name;
+		public String getTeamName() {
+			return teamName;
 		}
 
-		public void setTeam_name(String team_name) {
-			this.team_name = team_name;
+		public void setTeamName(String teamName) {
+			this.teamName = teamName;
 		}
 
-		public int getTeam_id() {
-			return team_id;
+		public int getTeamId() {
+			return teamId;
 		}
 
-		public void setTeam_id(int team_id) {
-			this.team_id = team_id;
+		public void setTeamId(int teamId) {
+			this.teamId = teamId;
 		}
 
-		public int getTotal_points() {
-			return total_points;
+		public int getTotalPoints() {
+			return totalPoints;
 		}
 
-		public void setTotal_points(int total_points) {
-			this.total_points = total_points;
+		public void setTotalPoints(int totalPoints) {
+			this.totalPoints = totalPoints;
 		}
 
 		public int getAces() {
@@ -671,65 +806,33 @@ import java.util.List;
 			this.winners = winners;
 		}
 
-		public int getUnforced_errors() {
-			return unforced_errors;
+		public int getUnforcedErrors() {
+			return unforcedErrors;
 		}
 
-		public void setUnforced_errors(int unforced_errors) {
-			this.unforced_errors = unforced_errors;
+		public void setUnforcedErrors(int unforcedErrors) {
+			this.unforcedErrors = unforcedErrors;
 		}
 
-		public int getDouble_faults() {
-			return double_faults;
+		public int getDoubleFaults() {
+			return doubleFaults;
 		}
 
-		public void setDouble_faults(int double_faults) {
-			this.double_faults = double_faults;
+		public void setDoubleFaults(int doubleFaults) {
+			this.doubleFaults = doubleFaults;
 		}
 
 		@Override
 		public String toString() {
-			return "TeamStat [team_name=" + team_name + ", team_id=" + team_id + ", total_points=" + total_points
-					+ ", aces=" + aces + ", winners=" + winners + ", unforced_errors=" + unforced_errors
-					+ ", double_faults=" + double_faults + "]";
+			return "TeamStat [teamName=" + teamName + ", teamId=" + teamId + ", totalPoints=" + totalPoints + ", aces="
+					+ aces + ", winners=" + winners + ", unforcedErrors=" + unforcedErrors + ", doubleFaults="
+					+ doubleFaults + "]";
 		}
 
-		public TeamStat() {
-			super();
-			
-		}
-
-        
+       
     }
-
+    @JsonIgnoreProperties(ignoreUnknown = true) 
     public static class LeaderBoard {
-
-        @JsonProperty("leader_board")
-        private List<TeamLeaderboard> leader_board;
-
-		public List<TeamLeaderboard> getLeader_board() {
-			return leader_board;
-		}
-
-		public void setLeader_board(List<TeamLeaderboard> leader_board) {
-			this.leader_board = leader_board;
-		}
-
-		@Override
-		public String toString() {
-			return "LeaderBoard [leader_board=" + leader_board + "]";
-		}
-
-		public LeaderBoard() {
-			super();
-			
-		}
-
-        
-    }
-
-    public static class TeamLeaderboard {
-
         @JsonProperty("matches")
         private int matches;
 
@@ -743,7 +846,7 @@ import java.util.List;
         private String team;
 
         @JsonProperty("team_id")
-        private int team_id;
+        private int teamId;
 
 		public int getMatches() {
 			return matches;
@@ -777,24 +880,21 @@ import java.util.List;
 			this.team = team;
 		}
 
-		public int getTeam_id() {
-			return team_id;
+		public int getTeamId() {
+			return teamId;
 		}
 
-		public void setTeam_id(int team_id) {
-			this.team_id = team_id;
+		public void setTeamId(int teamId) {
+			this.teamId = teamId;
 		}
 
 		@Override
 		public String toString() {
-			return "TeamLeaderboard [matches=" + matches + ", points=" + points + ", position=" + position + ", team="
-					+ team + ", team_id=" + team_id + "]";
+			return "LeaderBoard [matches=" + matches + ", points=" + points + ", position=" + position + ", team="
+					+ team + ", teamId=" + teamId + "]";
 		}
 
-		public TeamLeaderboard() {
-			super();
-		}
-
-        
+        // Getters and Setters
+        // (same as previous response for LeaderBoard class)
     }
 }
