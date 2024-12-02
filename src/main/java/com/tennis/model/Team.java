@@ -28,6 +28,9 @@ public class Team
   
   @Column(name = "TeamBadge")
   private String teamBadge;
+  
+  @Column(name = "TeamApiId")
+  private String teamApiId;
 
 public int getTeamId() {
 	return teamId;
@@ -77,10 +80,18 @@ public void setTeamBadge(String teamBadge) {
 	this.teamBadge = teamBadge;
 }
 
+public String getTeamApiId() {
+	return teamApiId;
+}
+
+public void setTeamApiId(String teamApiId) {
+	this.teamApiId = teamApiId;
+}
+
 @Override
 public String toString() {
 	return "Team [teamId=" + teamId + ", teamName1=" + teamName1 + ", teamName2=" + teamName2 + ", teamName3="
-			+ teamName3 + ", teamName4=" + teamName4 + ", teamBadge=" + teamBadge + "]";
+			+ teamName3 + ", teamName4=" + teamName4 + ", teamBadge=" + teamBadge + ", teamApiId=" + teamApiId + "]";
 }
 
 }

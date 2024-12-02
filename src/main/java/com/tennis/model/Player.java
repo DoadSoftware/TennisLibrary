@@ -42,6 +42,9 @@ public class Player
   @Column(name = "TeamId")
   private Integer teamId;
   
+  @Column(name = "PlayerApiId")
+  private Integer playerApiId;
+  
   @Transient
   private Team team;
  
@@ -133,11 +136,24 @@ public void setPhoto(String photo) {
 	this.photo = photo;
 }
 
+public Integer getPlayerApiId() {
+	return playerApiId;
+}
+
+public void setPlayerApiId(Integer playerApiId) {
+	this.playerApiId = playerApiId;
+}
+
+public void setRankingSingle(Integer rankingSingle) {
+	this.rankingSingle = rankingSingle;
+}
+
 @Override
 public String toString() {
 	return "Player [playerId=" + playerId + ", full_name=" + full_name + ", firstname=" + firstname + ", surname="
 			+ surname + ", ticker_name=" + ticker_name + ", rankingSingle=" + rankingSingle + ", rankingDouble="
-			+ rankingDouble + ", Nationality=" + Nationality + ", photo=" + photo + "]";
+			+ rankingDouble + ", Nationality=" + Nationality + ", photo=" + photo + ", teamId=" + teamId
+			+ ", playerApiId=" + playerApiId + ", team=" + team + "]";
 }
 
 }

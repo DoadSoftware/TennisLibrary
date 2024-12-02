@@ -23,7 +23,6 @@ import com.tennis.model.Stat;
 import com.tennis.model.Team;
 import com.tennis.service.TennisService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -126,6 +125,15 @@ public class TennisFunctions {
 			}
 		}
 		return players;
+	}
+	public static List<Team> processMatchTeams(TennisService tennisService, Match match) {
+		List<Team> team = new ArrayList<Team>();
+		for(Team tm : tennisService.getAllTeams()) {
+			if(match.getHomeFirstPlayer().getTeamId() == tm.getTeamId() || match.getAwayFirstPlayer().getTeamId() == tm.getTeamId()) {
+				team.add(tm);
+			}
+		}
+		return team;
 	}
 	
 	public static List<Result> processAllResults(TennisService tennisService) {
