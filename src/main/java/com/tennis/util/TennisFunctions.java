@@ -370,24 +370,24 @@ public class TennisFunctions {
 	{
 		if(match.getHomeFirstPlayerId() > 0) {
 			match.setHomeFirstPlayer(tennisService.getPlayer(match.getHomeFirstPlayerId()));
-			match.getHomeFirstPlayer().setTeam(tennisService.getTeam(match.getHomeFirstPlayer().getTeamId()));
+//			match.getHomeFirstPlayer().setTeam(tennisService.getTeam(match.getHomeFirstPlayer().getTeamId()));
 		}
 		if(match.getHomeSecondPlayerId() > 0) {
 			match.setHomeSecondPlayer(tennisService.getPlayer(match.getHomeSecondPlayerId()));
-			match.getHomeSecondPlayer().setTeam(tennisService.getTeam(match.getHomeSecondPlayer().getTeamId()));
+//			match.getHomeSecondPlayer().setTeam(tennisService.getTeam(match.getHomeSecondPlayer().getTeamId()));
 		}
 		if(match.getAwayFirstPlayerId() > 0) {
 			match.setAwayFirstPlayer(tennisService.getPlayer(match.getAwayFirstPlayerId()));
-			match.getAwayFirstPlayer().setTeam(tennisService.getTeam(match.getAwayFirstPlayer().getTeamId()));
+//			match.getAwayFirstPlayer().setTeam(tennisService.getTeam(match.getAwayFirstPlayer().getTeamId()));
 		}
 		if(match.getAwaySecondPlayerId() > 0) {
 			match.setAwaySecondPlayer(tennisService.getPlayer(match.getAwaySecondPlayerId()));
-			match.getAwaySecondPlayer().setTeam(tennisService.getTeam(match.getAwaySecondPlayer().getTeamId()));
+//			match.getAwaySecondPlayer().setTeam(tennisService.getTeam(match.getAwaySecondPlayer().getTeamId()));
 		}
 		match.setPlayers(tennisService.getAllPlayer());
-		for(Player plyr : match.getPlayers()) {
-			plyr.setTeam(tennisService.getTeam(plyr.getTeamId()));
-		}
+//		for(Player plyr : match.getPlayers()) {
+//			plyr.setTeam(tennisService.getTeam(plyr.getTeamId()));
+//		}
 
 		return match;
 	}
